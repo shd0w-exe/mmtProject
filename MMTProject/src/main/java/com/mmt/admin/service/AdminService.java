@@ -1,6 +1,7 @@
 package com.mmt.admin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mmt.admin.dao.AdminDao;
 import com.mmt.admin.model.Admin;
@@ -9,6 +10,8 @@ import com.mmt.flights.model.Flight;
 import com.mmt.hotels.dao.HotelDao;
 import com.mmt.hotels.model.Hotel;
 import com.mmt.user.dao.UserDao;
+
+@Service
 
 public class AdminService implements AdminServiceInterface {
 	@Autowired

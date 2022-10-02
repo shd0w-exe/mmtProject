@@ -2,14 +2,23 @@ package com.mmt.flights.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mmt.flights.dao.FlightDao;
 import com.mmt.flights.model.Flight;
 
-public class FlightService implements FlightServiceInterface {
 
+@Service
+public class FlightService implements FlightServiceInterface {
+	
+	@Autowired
+	private FlightDao fd;
+	
+	
 	@Override
-	public List<Flight> flight() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Flight> flight() {	
+		return fd.findAll();
 	}
 
 	@Override
@@ -21,7 +30,7 @@ public class FlightService implements FlightServiceInterface {
 	@Override
 	public List<Flight> flightFromStartCityToDestinationCityInOrder(String startCity, String endCity) {
 		// TODO Auto-generated method stub
-		return null;
+		return fd.findByFlightSourceAndFlightDestination(startCity, endCity);
 	}
 
 }
