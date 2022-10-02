@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -11,21 +12,21 @@ import org.hibernate.annotations.Parameter;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
 @Entity
+@Table(name = "admindetails")
 public class Admin {
+
 	@Id
-	@GeneratedValue(strategy =GenerationType.SEQUENCE,generator = "admin_seq")
-	@GenericGenerator(name="admin_seq",
-	            strategy = "com.example.demo.sequencegenerator.StringPrefixedSequenceIdGenerator",
-	            parameters = {
-	                    @Parameter(name=StringPrefixedSequenceIdGenerator.INCREMENT_PARAM,value="1"),
-	                  @Parameter(name=StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER,value="Admin_"),
-	                    @Parameter(name=StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER,value="%02d")
-	            }
-	            )
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq")
+	@GenericGenerator(name = "admin_seq", strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator", parameters = {
+			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "Admin_"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String adminId;
 	private String firstName;
 	private String lastName;
-	private String password;
+	private String adminEmail;
+	private long adminMobile;
+	private String adminPassword;
 	public String getAdminId() {
 		return adminId;
 	}
@@ -44,13 +45,23 @@ public class Admin {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getPassword() {
-		return password;
+	public String getAdminEmail() {
+		return adminEmail;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setAdminEmail(String adminEmail) {
+		this.adminEmail = adminEmail;
 	}
-	
-	
+	public long getAdminMobile() {
+		return adminMobile;
+	}
+	public void setAdminMobile(long adminMobile) {
+		this.adminMobile = adminMobile;
+	}
+	public String getAdminPassword() {
+		return adminPassword;
+	}
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
+	}
 	
 }

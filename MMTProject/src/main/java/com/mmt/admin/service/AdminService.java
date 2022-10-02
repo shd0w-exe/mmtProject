@@ -29,7 +29,7 @@ public class AdminService implements AdminServiceInterface {
 		Admin existAdmin = ad.findById(admin.getAdminId()).get();
 		if(existAdmin==null) return false;
 		else {
-			if(existAdmin.getPassword().equals(admin.getPassword())) return true;
+			if(existAdmin.getAdminPassword().equals(admin.getAdminPassword())) return true;
 		}
 		return false;
 	}
