@@ -1,10 +1,24 @@
 package com.mmt.flights.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
-import com.mmt.time.Time;
 
 public class Flight {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flights_seq")
+	@GenericGenerator(name = "flights_seq", strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator", parameters = {
+			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "Flight_"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String flightId;
 	private String flightNumber;
 	private String airlineName;
