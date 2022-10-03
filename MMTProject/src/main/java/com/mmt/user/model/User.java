@@ -73,14 +73,7 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public long getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public void setMobileNumber(long mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
-
+	
 	public String getMailID() {
 		return mailID;
 	}
@@ -97,4 +90,12 @@ public class User {
 		this.password = password;
 	}
 
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	
 }
