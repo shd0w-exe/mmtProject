@@ -26,7 +26,7 @@ public class User {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private long mobileNumber;
+	private String mobileNumber;
 	private String mailID;
 	private String password;
 	@OneToOne(mappedBy = "userd")
