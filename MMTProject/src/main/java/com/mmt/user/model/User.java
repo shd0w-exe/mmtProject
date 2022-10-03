@@ -1,9 +1,14 @@
 package com.mmt.user.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -11,6 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.mmt.address.Address;
+import com.mmt.booking.model.Booking;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
 @Entity
@@ -31,7 +37,8 @@ public class User {
 	private String password;
 	@OneToOne(mappedBy = "userd")
 	private Address address;
-	
+	@OneToMany(mappedBy = "user")
+	private List<Booking> booking = new ArrayList<>();
 	//sample comment
 	public Address getAddress() {
 		return address;
@@ -97,5 +104,15 @@ public class User {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
+	public List<Booking> getBooking() {
+		return booking;
+	}
+
+	public void setBooking(List<Booking> booking) {
+		this.booking = booking;
+	}
+
+	
 	
 }

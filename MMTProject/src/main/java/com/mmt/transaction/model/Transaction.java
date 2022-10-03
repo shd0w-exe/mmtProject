@@ -1,6 +1,11 @@
 package com.mmt.transaction.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Transaction {
+	@Id
 	private String transactionId;
 	
 	private String HotelId;
