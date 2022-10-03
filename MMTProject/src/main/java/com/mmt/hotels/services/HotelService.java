@@ -35,4 +35,10 @@ public class HotelService implements HotelServiceInterface {
 		return false;
 	}
 
+	@Override
+	public boolean cancelHotelBooking(String transactionId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -9,4 +9,5 @@ public interface HotelServiceInterface {
 	public List<Hotel> hotelAtDestinationCity(String city);
 	public List<Hotel>hotelAtDestinationCityAc(String city);
 	public boolean bookHotel(String hotelId , int noOfRooms , boolean isAc);
+	public boolean cancelHotelBooking(String transactionId);
 }
