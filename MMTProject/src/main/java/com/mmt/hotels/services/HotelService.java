@@ -47,4 +47,12 @@ public class HotelService implements HotelServiceInterface {
 		return hd.findById(hotelId).get();
 	}
 
+	@Override
+	public int noOfRooms(String hotelId, boolean isAc) {
+		// TODO Auto-generated method stub
+		Hotel hotel = hd.findById(hotelId).get();
+		//if(isAc) return hotel.get();
+		return 0;
+	}
+
 }
