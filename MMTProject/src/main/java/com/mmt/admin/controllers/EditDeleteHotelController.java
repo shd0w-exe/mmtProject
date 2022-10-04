@@ -3,7 +3,7 @@ package com.mmt.admin.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mmt.admin.service.AdminServiceInterface;
 import com.mmt.hotels.model.Hotel;
@@ -20,7 +20,7 @@ public class EditDeleteHotelController {
 	}
 	
 	@RequestMapping("deleteHotel") //-- deleteHotelPage
-	public String deleteHotel(String hotelId) {
+	public String deleteHotel(@RequestParam("hotelId")String hotelId) {
 		as.removeHotel(hotelId);
 		return "removedHotelSuccessfully";
 	}

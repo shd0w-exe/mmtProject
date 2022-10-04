@@ -3,6 +3,7 @@ package com.mmt.hotels.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mmt.hotels.services.HotelServiceInterface;
 
@@ -13,8 +14,8 @@ public class CancelHotelsController {
 	private HotelServiceInterface hs;
 	
 	@RequestMapping("cancelHotelBooking") //--------- cancelHotelBookingPage
-	public String cancelHotelBooking(String TransactionId) {
-		hs.cancelHotelBooking(TransactionId);
+	public String cancelHotelBooking(@RequestParam("bookingId")String bookingId) {
+		hs.cancelHotelBooking(bookingId);
 		return "cancelHotelBookingSuccessfully";
 	}
 }

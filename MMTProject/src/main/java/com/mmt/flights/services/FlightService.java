@@ -33,7 +33,7 @@ public class FlightService implements FlightServiceInterface {
 
 	@Override
 	public List<Flight> flightFromStartCityToDestinationCityInOrder(String startCity, String endCity) {
-		// TODO Auto-generated method stub
+		
 		return fd.findByFlightSourceAndFlightDestination(startCity, endCity);
 	}
 
@@ -60,5 +60,28 @@ public class FlightService implements FlightServiceInterface {
 		fd.save(flight);
 		return true;
 	}
+
+
+
+	@Override
+	public int noOfSeats(String flightId) {
+		
+		Flight flight = fd.findById(flightId).get();
+		return flight.getNoOfSeats();
+	}
+
+
+
+	@Override
+	public boolean isSeatsAvilable(String flightId, int noOfSeatsRequired) {
+		
+		if(noOfSeatsRequired > noOfSeats(flightId))
+			return false;
+		return true;
+	}
+
+
+
+	
 
 }

@@ -41,4 +41,10 @@ public class HotelService implements HotelServiceInterface {
 		return false;
 	}
 
+	@Override
+	public Hotel viewHotel(String hotelId) {
+		// TODO Auto-generated method stub
+		return hd.findById(hotelId).get();
+	}
+
 }

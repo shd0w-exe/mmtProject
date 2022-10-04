@@ -3,6 +3,7 @@ package com.mmt.admin.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mmt.admin.service.AdminServiceInterface;
 import com.mmt.flights.model.Flight;
@@ -19,7 +20,7 @@ public class EditDeleteFlightController {
 	}
 	
 	@RequestMapping("deleteFlight") // -- deleteFlightpage
-	public String deleteFlight(String flightId) {
+	public String deleteFlight(@RequestParam("flightId")String flightId) {
 		as.removeFlight(flightId);
 		return "deleteFlightSuccessfully";
 	}
