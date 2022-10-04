@@ -9,6 +9,7 @@ import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.flights.dao.FlightDao;
 import com.mmt.flights.model.Flight;
+import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
 
 
@@ -22,7 +23,8 @@ public class FlightService implements FlightServiceInterface {
 	@Autowired
 	private BookedFlightDao bd;
 	
-	
+	@Autowired
+	private UserDao ud;
 	
 	@Override
 	public List<Flight> flight() {	
@@ -38,11 +40,6 @@ public class FlightService implements FlightServiceInterface {
 	}
 
 
-
-	
-
-
-
 	@Override
 	public boolean bookFlight(User user, String flightId, int noOfSeats) {
 		Flight flight = fd.findById(flightId).get();
@@ -56,7 +53,8 @@ public class FlightService implements FlightServiceInterface {
 		bd.save(book);
 		List<BookedFlight> list = user.getFlight();
 		list.add(book);
-		flight.setNoOfSeats(emptySeats - noOfSeats);
+		ud.save(user);
+		flight.setNoOfAvilableSeats(emptySeats - noOfSeats);
 		fd.save(flight);
 		return true;
 	}

@@ -43,7 +43,6 @@ public class HotelService implements HotelServiceInterface {
 
 	@Override
 	public boolean bookHotel(String hotelId,String userId, int noOfRooms, boolean isAc) {
-		// TODO Auto-generated method stub
 		Hotel hotel = hd.findById(hotelId).get();
 		User user = ud.findById(userId).get(); 
 		float price = 0;
@@ -72,7 +71,7 @@ public class HotelService implements HotelServiceInterface {
 
 	@Override
 	public boolean cancelHotelBooking(String bookingId) {
-		// TODO Auto-generated method stub
+		
 		BookedHotel book = new BookedHotel();
 		BookedHotel bookHotel = bd.findById(bookingId).get();
 		Hotel hotel = bookHotel.getHotel();
