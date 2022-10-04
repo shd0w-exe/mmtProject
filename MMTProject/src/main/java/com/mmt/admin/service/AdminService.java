@@ -70,8 +70,16 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean updateHoetl(Hotel hotel) {
-		
-		hd.save(hotel);
+		Hotel existHotel = hd.findById(hotel.getHotelId()).get();
+		if(existHotel==null) return false;
+		if(hotel.getHotelBrand()!=null) existHotel.setHotelBrand(hotel.getHotelBrand());
+		if(hotel.getHotelCity()!=null) existHotel.setHotelCity(hotel.getHotelCity());
+		if(hotel.getHotelName()!=null) existHotel.setHotelName(hotel.getHotelName());
+		if(hotel.getNoOfAcRooms()!= 0) existHotel.setNoOfAcRooms(hotel.getNoOfAcRooms());
+		if(hotel.getNoOfNonAcRooms()!=0) existHotel.setNoOfAvilableNonAcRoom(hotel.getNoOfNonAcRooms());
+		if(hotel.getPriceAcRoom()!= 0) existHotel.setPriceAcRoom(hotel.getPriceAcRoom());
+		if(hotel.getPriceNonAcRoom()!=0)existHotel.setPriceNonAcRoom(hotel.getPriceNonAcRoom());
+		hd.save(existHotel);
 		return true;
 	}
 
