@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mmt.booking.dao.BookingDao;
-import com.mmt.booking.model.Booking;
+import com.mmt.bookedFlight.dao.BookedFlightDao;
+import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.flights.dao.FlightDao;
 import com.mmt.flights.model.Flight;
 import com.mmt.user.model.User;
@@ -20,7 +20,8 @@ public class FlightService implements FlightServiceInterface {
 	private FlightDao fd;
 	
 	@Autowired
-	private BookingDao bd;
+	private BookedFlightDao bd;
+	
 	
 	
 	@Override
@@ -47,11 +48,13 @@ public class FlightService implements FlightServiceInterface {
 		Flight flight = fd.findById(flightId).get();
 		int emptySeats = flight.getNoOfSeats();
 		if(emptySeats < noOfSeats) return false;
-		Booking book = new Booking();
-		book.setType("Flight");
+		BookedFlight book = new BookedFlight();
+		book.setBookedFlightId(flightId);
 		book.setUser(user);
+		book.setNoOfSeats(noOfSeats);
+		book.setPrice(noOfSeats * flight.getPricePerSeat());
 		bd.save(book);
-		List<Booking> list = user.getBooking();
+		List<BookedFlight> list = user.getFlight();
 		list.add(book);
 		flight.setNoOfSeats(emptySeats - noOfSeats);
 		fd.save(flight);

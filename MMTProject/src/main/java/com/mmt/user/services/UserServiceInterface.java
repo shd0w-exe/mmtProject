@@ -2,7 +2,8 @@ package com.mmt.user.services;
 
 import java.util.List;
 
-import com.mmt.booking.model.Booking;
+import com.mmt.bookedFlight.model.BookedFlight;
+import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.flights.model.Flight;
 import com.mmt.hotels.model.Hotel;
 import com.mmt.transaction.model.Transaction;
@@ -17,9 +18,9 @@ public interface UserServiceInterface{
 	public boolean updateUser(User user);
 	public List<User> userByNoOfBookings();
 	public User viewUser(String userId);
-	public Booking viewLastBooking(String bookingID);
-	public boolean updateBooking(Booking booking);
-	public List<Booking> allBookings(String userId);
+	public BookedFlight viewLastFlightBooking(String bookingId);
+	public BookedHotel viewLastHotelBooking(String bookingId);
+	public boolean updateBookingFlight(BookedFlight booking);
 	public List<Transaction> allTransactionByUser(String userId);
 	public List<Hotel> allBookedHotels(String userId);
 	public List<Flight> allBookedFlight(String userId);

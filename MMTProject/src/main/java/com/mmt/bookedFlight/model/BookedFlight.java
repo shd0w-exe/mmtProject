@@ -1,4 +1,4 @@
-package com.mmt.bookedFlight;
+package com.mmt.bookedFlight.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

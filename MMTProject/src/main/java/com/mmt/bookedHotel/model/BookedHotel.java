@@ -1,4 +1,4 @@
-package com.mmt.bookedHotel;
+package com.mmt.bookedHotel.model;
 
 
 import javax.persistence.GeneratedValue;

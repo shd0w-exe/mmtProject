@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.mmt.booking.model.Booking;
+import com.mmt.bookedFlight.model.BookedFlight;
+import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.flights.model.Flight;
 import com.mmt.hotels.model.Hotel;
 import com.mmt.transaction.model.Transaction;
@@ -72,23 +73,7 @@ public class UserService implements UserServiceInterface{
 		return null;
 	}
 
-	@Override
-	public Booking viewLastBooking(String bookingID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean updateBooking(Booking booking) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public List<Booking> allBookings(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public List<Transaction> allTransactionByUser(String userId) {
@@ -106,6 +91,24 @@ public class UserService implements UserServiceInterface{
 	public List<Flight> allBookedFlight(String userId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public BookedFlight viewLastFlightBooking(String bookingId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BookedHotel viewLastHotelBooking(String bookingId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateBookingFlight(BookedFlight booking) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

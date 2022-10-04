@@ -16,7 +16,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.mmt.address.Address;
-import com.mmt.booking.model.Booking;
+import com.mmt.bookedFlight.model.BookedFlight;
+import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
 @Entity
@@ -38,7 +39,9 @@ public class User {
 	@OneToOne(mappedBy = "userd")
 	private Address address;
 	@OneToMany(mappedBy = "user")
-	private List<Booking> booking = new ArrayList<>();
+	private List<BookedHotel> hotelBooking = new ArrayList<>();
+	@OneToMany(mappedBy = "user")
+	private List<BookedFlight> flightBooking = new ArrayList<>();
 	//sample comment
 	public Address getAddress() {
 		return address;
@@ -105,13 +108,23 @@ public class User {
 		this.mobileNumber = mobileNumber;
 	}
 
-	public List<Booking> getBooking() {
-		return booking;
+	public List<BookedHotel> getHotel() {
+		return hotelBooking;
 	}
 
-	public void setBooking(List<Booking> booking) {
-		this.booking = booking;
+	public void setHotel(List<BookedHotel> hotel) {
+		this.hotelBooking = hotel;
 	}
+
+	public List<BookedFlight> getFlight() {
+		return flightBooking;
+	}
+
+	public void setFlight(List<BookedFlight> flight) {
+		this.flightBooking = flight;
+	}
+
+	
 
 	
 	
