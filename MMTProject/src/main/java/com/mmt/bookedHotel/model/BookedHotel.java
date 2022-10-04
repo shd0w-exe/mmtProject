@@ -28,16 +28,13 @@ public class BookedHotel {
 	private String bookedHotelId;
 	private int noOfRooms;
 	private boolean isAc;
-	private int price;
+	private float price;
 	@OneToOne
 	private Hotel hotel;
 	@ManyToOne
 	private User user;
 	public String getBookedHotelId() {
 		return bookedHotelId;
-	}
-	public void setBookedHotelId(String bookedHotelId) {
-		this.bookedHotelId = bookedHotelId;
 	}
 	public int getNoOfRooms() {
 		return noOfRooms;
@@ -51,10 +48,10 @@ public class BookedHotel {
 	public void setAc(boolean isAc) {
 		this.isAc = isAc;
 	}
-	public int getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	public Hotel getHotel() {
@@ -69,6 +66,10 @@ public class BookedHotel {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public void setBookedHotelId(String bookedHotelId) {
+		this.bookedHotelId = bookedHotelId;
+	}
+	
 	
 	
 }
