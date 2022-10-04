@@ -4,9 +4,8 @@ import java.util.List;
 
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.bookedHotel.model.BookedHotel;
-import com.mmt.flights.model.Flight;
-import com.mmt.hotels.model.Hotel;
-import com.mmt.transaction.model.Transaction;
+
+
 import com.mmt.user.model.User;
 
 public interface UserServiceInterface{
@@ -21,7 +20,6 @@ public interface UserServiceInterface{
 	public BookedFlight viewLastFlightBooking(String bookingId);
 	public BookedHotel viewLastHotelBooking(String bookingId);
 	public boolean updateBookingFlight(BookedFlight booking);
-	public List<Transaction> allTransactionByUser(String userId);
-	public List<Hotel> allBookedHotels(String userId);
-	public List<Flight> allBookedFlight(String userId);
+	public List<BookedHotel> allBookedHotels(String userId);
+	public List<BookedFlight> allBookedFlight(String userId);
 }

@@ -17,7 +17,7 @@ public class BookHotelsController {
 	
 	
 	@RequestMapping("bookHotel") //--------bookHotelForm
-	public String bookHotel(@RequestParam("hotelId")String hotelId , @RequestParam("noOfRooms")int noOfRooms, @RequestParam("isAc")boolean isAc, HttpSession session) {
+	public String bookHotel(@RequestParam("hotelId")String hotelId , @RequestParam("noOfRooms")int noOfRooms,@RequestParam("isAc")boolean isAc, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		if(userId==null) return "userLogin";
 		hs.bookHotel(hotelId,userId, noOfRooms, isAc);

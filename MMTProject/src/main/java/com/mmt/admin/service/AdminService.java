@@ -101,11 +101,12 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean updateFlight(Flight flight) {
-		if(fd.findById(flight.getFlightId())!=null) {
-			fd.save(flight);
-			return true;
+		if(fd.findById(flight.getFlightId())==null) {
+			return false;
 		}
-		return false;
+		
+		return true;
+		
 	}
 	
 
