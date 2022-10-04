@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
+import com.mmt.bookedHotel.dao.BookedHotelDao;
 import com.mmt.bookedHotel.model.BookedHotel;
 
 import com.mmt.user.dao.UserDao;
@@ -14,22 +16,26 @@ public class UserService implements UserServiceInterface{
 	
 	@Autowired
 	private UserDao ud;
+	
+	@Autowired
+	private BookedFlightDao bfd;
+	
+	@Autowired
+	private BookedHotelDao bhd;
 	@Override
 	public List<User> allUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return ud.findAll();
 	}
 
 	@Override
 	public boolean createuser(User user) {
-		// TODO Auto-generated method stub
+		ud.save(user);
 		return false;
 	}
 
 	@Override
 	public boolean userLogin(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		return ud.findByUserIdAndPassword(user.getUserId(), user.getPassword());
 	}
 
 	@Override
@@ -40,19 +46,34 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public boolean deleteUser(String userId) {
-		// TODO Auto-generated method stub
+		ud.deleteById(userId);
 		return false;
 	}
 
 	@Override
 	public boolean updateUser(User user) {
-		// TODO Auto-generated method stub
+	
 		User existUser = ud.findById(user.getUserId()).get();
 		if(user.getMobileNumber() != null) {
 			existUser.setMobileNumber(user.getMobileNumber());
 		}
 		if(user.getAddress()!=null) {
 			existUser.setAddress(user.getAddress());
+		}
+		if(user.getFirstName()!=null) {
+			existUser.setFirstName(user.getFirstName());
+		}
+		if(user.getLastName()!=null) {
+			existUser.setLastName(user.getLastName());
+		}
+		if(user.getMailID()!=null) {
+			existUser.setMailID(user.getMailID());
+		}
+		if(user.getMiddleName()!=null) {
+			existUser.setMiddleName(user.getMiddleName());
+		}
+		if(user.getPassword()!=null) {
+			existUser.setPassword(user.getPassword());
 		}
 		
 		ud.save(existUser);
@@ -67,8 +88,8 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public User viewUser(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return ud.findById(userId).get();
 	}
 
 
