@@ -13,5 +13,6 @@ public interface FlightServiceInterface {
 	public List<Flight> flightFromStartCityToDestinationCityInOrder(String startCity , String endCity);
 	public int noOfSeats(String flightId );
 	public boolean isSeatsAvilable(String flightId , int noOfSeats);
+	public boolean cancelFlight(String bookingId);
 	
 }

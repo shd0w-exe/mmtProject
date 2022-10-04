@@ -58,8 +58,25 @@ public class FlightService implements FlightServiceInterface {
 		fd.save(flight);
 		return true;
 	}
-
-
+	
+	@Override
+	public boolean cancelFlight(String bookingId) {
+		// TODO Auto-generated method stub
+		BookedFlight bookedFlight = bd.findById(bookingId).get();
+		BookedFlight cancelBooking = new BookedFlight();
+		if(bookedFlight == null)return false;
+		User user = bookedFlight.getUser();
+		Flight flight = bookedFlight.getFlight();
+		flight.setNoOfAvilableSeats(flight.getNoOfAvilableSeats() + bookedFlight.getNoOfSeats());
+		fd.save(flight);
+		cancelBooking.setFlight(flight);
+		cancelBooking.setUser(user);
+		bd.save(cancelBooking);
+		List<BookedFlight> list = user.getFlight();
+		list.add(cancelBooking);
+		ud.save(user);
+		return true;
+	}
 
 	@Override
 	public int noOfSeats(String flightId) {
@@ -77,6 +94,10 @@ public class FlightService implements FlightServiceInterface {
 			return false;
 		return true;
 	}
+
+
+
+	
 
 
 
