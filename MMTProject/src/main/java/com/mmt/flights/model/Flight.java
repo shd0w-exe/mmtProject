@@ -11,7 +11,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
-
+@Entity
+@Table(name = "flightdetails")
 public class Flight {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flights_seq")
@@ -28,7 +29,17 @@ public class Flight {
 	private String flightSource;
 	private String flightDestination;
 	
-	
+	@OneToOne(mappedBy = "flight")
+	private BookedFlight bookedflights;
+
+	public BookedFlight getBookedflights() {
+		return bookedflights;
+	}
+
+	public void setBookedflights(BookedFlight bookedflights) {
+		this.bookedflights = bookedflights;
+	}
+
 	public String getFlightSource() {
 		return flightSource;
 	}
@@ -93,6 +104,4 @@ public class Flight {
 		this.flightArrival = flightArrival;
 	}
 
-	
-	
 }
