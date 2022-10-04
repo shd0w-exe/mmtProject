@@ -1,5 +1,7 @@
 package com.mmt.hotels.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +17,10 @@ public class BookHotelsController {
 	
 	
 	@RequestMapping("bookHotel") //--------bookHotelForm
-	public String bookHotel(@RequestParam("hotelId")String hotelId , @RequestParam("noOfRooms")int noOfRooms, @RequestParam("isAc")boolean isAc) {
-		hs.bookHotel(hotelId, noOfRooms, isAc);
+	public String bookHotel(@RequestParam("hotelId")String hotelId , @RequestParam("noOfRooms")int noOfRooms, @RequestParam("isAc")boolean isAc , HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		if(userId==null) return "userLogin";
+		hs.bookHotel(hotelId,userId, noOfRooms, isAc);
 		return "bookHotelSuccessfully";
 	}
 	

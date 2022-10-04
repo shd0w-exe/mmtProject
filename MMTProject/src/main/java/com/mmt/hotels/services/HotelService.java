@@ -61,7 +61,9 @@ public class HotelService implements HotelServiceInterface {
 		}
 		book.setHotel(hotel);
 		book.setPrice(price);
+		book.setType("booked");
 		bd.save(book);
+		hd.save(hotel);
 		List<BookedHotel> bookHotel = user.getHotel();
 		bookHotel.add(book);
 		ud.save(user);
@@ -69,8 +71,25 @@ public class HotelService implements HotelServiceInterface {
 	}
 
 	@Override
-	public boolean cancelHotelBooking(String transactionId) {
+	public boolean cancelHotelBooking(String bookingId) {
 		// TODO Auto-generated method stub
+		BookedHotel book = new BookedHotel();
+		BookedHotel bookHotel = bd.findById(bookingId).get();
+		Hotel hotel = bookHotel.getHotel();
+		User user = ud.findById(book.getUser().getUserId()).get(); 
+		if(bookHotel.isAc()) {
+			hotel.setNoOfAvilableAcRoom(hotel.getNoOfAcRooms() + bookHotel.getNoOfRooms());
+		}else if(!bookHotel.isAc()) {
+			hotel.setNoOfAvilableNonAcRoom(hotel.getNoOfNonAcRooms() + bookHotel.getNoOfRooms());
+		}
+		book.setHotel(hotel);
+		//book.setPrice(price); if we add refund
+		book.setType("canceled");
+		bd.save(book);
+		hd.save(hotel);
+		List<BookedHotel> bookHotellist = user.getHotel();
+		bookHotellist.add(book);
+		ud.save(user);
 		return false;
 	}
 

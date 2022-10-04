@@ -29,6 +29,7 @@ public class BookedHotel {
 	private int noOfRooms;
 	private boolean isAc;
 	private float price;
+	private String type;
 	@OneToOne
 	private Hotel hotel;
 	@ManyToOne
@@ -68,6 +69,12 @@ public class BookedHotel {
 	}
 	public void setBookedHotelId(String bookedHotelId) {
 		this.bookedHotelId = bookedHotelId;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	

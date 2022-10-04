@@ -33,6 +33,7 @@ public class BookedFlight {
 	private Flight flight;
 	@ManyToOne
 	private User user;
+	private String type;
 	public String getBookedFlightId() {
 		return bookedFlightId;
 	}
@@ -62,6 +63,12 @@ public class BookedFlight {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	
