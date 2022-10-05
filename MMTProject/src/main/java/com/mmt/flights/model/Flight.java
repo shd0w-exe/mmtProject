@@ -1,14 +1,18 @@
 package com.mmt.flights.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+
+import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
 @Entity
@@ -23,20 +27,21 @@ public class Flight {
 	private String flightId;
 	private String flightNumber;
 	private String airlineName;
-	private Time flightDuration;
-	private Time flightDeparture;
-	private Time flightArrival;
+	private String flightDuration;
+	private String flightDeparture;
+	private String flightArrival;
 	private String flightSource;
 	private String flightDestination;
-	
-	@OneToOne(mappedBy = "flight")
-	private BookedFlight bookedflights;
 
-	public BookedFlight getBookedflights() {
+	
+	@OneToMany(mappedBy = "flight")
+	private List<BookedFlight> bookedflights;
+
+	public List<BookedFlight> getBookedflights() {
 		return bookedflights;
 	}
 
-	public void setBookedflights(BookedFlight bookedflights) {
+	public void setBookedflights(List<BookedFlight> bookedflights) {
 		this.bookedflights = bookedflights;
 	}
 
@@ -80,27 +85,27 @@ public class Flight {
 		this.airlineName = airlineName;
 	}
 
-	public Time getFlightDuration() {
+	public String getFlightDuration() {
 		return flightDuration;
 	}
 
-	public void setFlightDuration(Time flightDuration) {
+	public void setFlightDuration(String flightDuration) {
 		this.flightDuration = flightDuration;
 	}
 
-	public Time getFlightDeparture() {
+	public String getFlightDeparture() {
 		return flightDeparture;
 	}
 
-	public void setFlightDeparture(Time flightDeparture) {
+	public void setFlightDeparture(String flightDeparture) {
 		this.flightDeparture = flightDeparture;
 	}
 
-	public Time getFlightArrival() {
+	public String getFlightArrival() {
 		return flightArrival;
 	}
 
-	public void setFlightArrival(Time flightArrival) {
+	public void setFlightArrival(String flightArrival) {
 		this.flightArrival = flightArrival;
 	}
 
