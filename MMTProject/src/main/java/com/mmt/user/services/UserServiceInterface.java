@@ -14,10 +14,11 @@ public interface UserServiceInterface{
 	public boolean createuser(User user);
 	public boolean userLogin(User user);
 	public boolean userLogout();
-	public boolean deleteUser(String userId);
+	public boolean deleteUser(String userId , String password);
 	public boolean updateUser(User user);
 	public List<User> userByNoOfBookings();
 	public User viewUser(String userId);
+	public Address viewAddress(String userId);
 	public BookedFlight viewLastFlightBooking(String bookingId);
 	public BookedHotel viewLastHotelBooking(String bookingId);
 	public boolean updateBookingFlight(BookedFlight booking);
