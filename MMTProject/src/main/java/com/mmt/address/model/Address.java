@@ -1,4 +1,4 @@
-package com.mmt.address;
+package com.mmt.address.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,23 +25,17 @@ public class Address {
 	            }
 	            )
 	private String addressId;
-	private String name;
 	private String houseNo;
 	private String streetName;
 	private String area;
 	private String city;
 	private String state;
-	private int pinCode;
+	private int pinCode =0;
 	private String country;
 	
 	@OneToOne
 	private User userd;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getHouseNo() {
 		return houseNo;
 	}

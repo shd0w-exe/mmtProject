@@ -32,7 +32,11 @@ public class Flight {
 	private String flightArrival;
 	private String flightSource;
 	private String flightDestination;
-
+	private int noOfSeats ;
+	private int noOfAvilableSeats;
+	private int getPricePerSeat;
+	
+	
 	
 	@OneToMany(mappedBy = "flight")
 	private List<BookedFlight> bookedflights;
@@ -51,6 +55,32 @@ public class Flight {
 
 	public void setFlightSource(String flightSource) {
 		this.flightSource = flightSource;
+	}
+
+	
+	public int getNoOfSeats() {
+		return noOfSeats;
+	}
+
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
+	}
+
+	public int getNoOfAvilableSeats() {
+		return noOfAvilableSeats;
+	}
+	
+
+	public int getGetPricePerSeat() {
+		return getPricePerSeat;
+	}
+
+	public void setGetPricePerSeat(int getPricePerSeat) {
+		this.getPricePerSeat = getPricePerSeat;
+	}
+
+	public void setNoOfAvilableSeats(int noOfAvilableSeats) {
+		this.noOfAvilableSeats = noOfAvilableSeats;
 	}
 
 	public String getFlightDestination() {
@@ -108,5 +138,7 @@ public class Flight {
 	public void setFlightArrival(String flightArrival) {
 		this.flightArrival = flightArrival;
 	}
+
+	
 
 }

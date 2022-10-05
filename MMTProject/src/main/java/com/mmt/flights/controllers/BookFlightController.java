@@ -20,8 +20,8 @@ public class BookFlightController {
 	
 	@RequestMapping("bookFlight") //-- bookFlightPage
 	public String bookFlight(Flight flight , @RequestParam("noOfSeats")int noOfSeats ,@RequestParam("flightId")String flightId ,HttpSession session) {
-		User user = (User) session.getAttribute("user");
-		if(fs.bookFlight(user, flightId, noOfSeats)) return "succesfullyBookedFlight";
+		String userId = (String) session.getAttribute("user");
+		if(fs.bookFlight(userId, flightId, noOfSeats)) return "succesfullyBookedFlight";
 		return "BookedFlightFailed";
 	}
 }
