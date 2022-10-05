@@ -19,4 +19,9 @@ public class AdminLoginController {
 		m.addAttribute("message" , "wrong username or password");
 		return "adminLoginForm";
 	}
+	
+	@RequestMapping("goAddHotel")
+	public String addHotelNav() {
+		return "addHotelPage";
+	}
 }

@@ -17,7 +17,7 @@
 <!--   <a href="updateUserDetails">Update Profile</a> -->
 <!--   <a href="viewUserAddress">View Address</a> -->
 <!--   <a href="addAddressToUser">Add Address</a> -->
-  <a href="deleteUserByUser">Delete Account</a>
+   <a href="deleteUserByUser">Delete Account</a>
   </div>
   </div>
   <div class="dropdown">
@@ -30,7 +30,7 @@
   <div class="dropdown">
   <p class="dropbtn">Flights</p>
   <div class="dropdown-content">
-  <a href="View Profile">Search Flights</a>
+  <a href="searchFlight">Search Flights</a>
   <a href="Update Profile">My Flights Bookings</a>
   </div>
   </div>

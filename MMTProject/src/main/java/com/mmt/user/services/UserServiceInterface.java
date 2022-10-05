@@ -16,7 +16,7 @@ public interface UserServiceInterface{
 	public boolean userLogin(User user);
 	public boolean userLogout();
 	public boolean deleteUser(String userId , String password);
-	public boolean updateUser(User user);
+	public boolean updateUser(User user , String userId);
 	public List<User> userByNoOfBookings();
 	public User viewUser(String userId);
 	//public Address viewAddress(String userId);

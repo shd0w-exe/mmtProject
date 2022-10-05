@@ -20,11 +20,11 @@
 <label>Mobile Number</label>
 <input type="text" name="mobileNumber" placeholder=""/>
 <label>MailId</label>
-<input type="text" name="mailId" placeholder=""/>
+<input type="text" name="mailID" placeholder=""/>
 <label>Password</label>
 <input type="text" name="password" placeholder=""/>
 <div>                     </div>
-<input type="submit" value="Update Profile">
+<input type="submit"  value="submit">
 </form>
 </div>
 </body>

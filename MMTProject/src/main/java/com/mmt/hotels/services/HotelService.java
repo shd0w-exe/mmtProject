@@ -67,7 +67,7 @@ public class HotelService implements HotelServiceInterface {
 		book.setType("booked");
 		bd.save(book);
 		hd.save(hotel);
-		List<BookedHotel> bookHotel = user.getHotel();
+		List<BookedHotel> bookHotel = user.getHotelBooking();
 		bookHotel.add(book);
 		ud.save(user);
 		return true;
@@ -90,7 +90,7 @@ public class HotelService implements HotelServiceInterface {
 		book.setType("canceled");
 		bd.save(book);
 		hd.save(hotel);
-		List<BookedHotel> bookHotellist = user.getHotel();
+		List<BookedHotel> bookHotellist = user.getHotelBooking();
 		bookHotellist.add(book);
 		ud.save(user);
 		return false;

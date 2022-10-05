@@ -50,78 +50,59 @@ public class User {
 //	public void setAddress(Address address) {
 //		this.address = address;
 //	}
-
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getMiddleName() {
 		return middleName;
 	}
-
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	
-	public String getMailID() {
-		return mailID;
-	}
-
-	public void setMailID(String mailID) {
-		this.mailID = mailID;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-
-	public List<BookedHotel> getHotel() {
+	public String getMailID() {
+		return mailID;
+	}
+	public void setMailID(String mailID) {
+		this.mailID = mailID;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public List<BookedHotel> getHotelBooking() {
 		return hotelBooking;
 	}
-
-	public void setHotel(List<BookedHotel> hotel) {
-		this.hotelBooking = hotel;
+	public void setHotelBooking(List<BookedHotel> hotelBooking) {
+		this.hotelBooking = hotelBooking;
 	}
-
-	public List<BookedFlight> getFlight() {
+	public List<BookedFlight> getFlightBooking() {
 		return flightBooking;
 	}
-
-	public void setFlight(List<BookedFlight> flight) {
-		this.flightBooking = flight;
+	public void setFlightBooking(List<BookedFlight> flightBooking) {
+		this.flightBooking = flightBooking;
 	}
 
 	

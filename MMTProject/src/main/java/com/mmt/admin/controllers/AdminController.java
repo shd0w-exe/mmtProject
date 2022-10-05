@@ -9,4 +9,24 @@ public class AdminController {
 	public String adminLogin() {
 		return "adminLoginPage";
 	}
+	
+	@RequestMapping("adminHomePage")
+	public String adminHomePage() {
+		return "adminHome";
+	}
+	
+	@RequestMapping("goAddFlights")
+	public String goAddFlights() {
+		return "addFlightPage";
+	}
+	
+	@RequestMapping("goRemoveHotel")
+	public String goRemoveHotel() {
+		return "removeHotelPage";
+	}
+	
+	@RequestMapping("goRemoveFlight")
+	public String goRemoveFlight() {
+		return "removeFlightPage";
+	}
 }

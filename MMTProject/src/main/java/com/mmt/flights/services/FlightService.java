@@ -53,7 +53,7 @@ public class FlightService implements FlightServiceInterface {
 		book.setPrice(noOfSeats * flight.getPricePerSeat());
 		book.setType("booked");
 		bd.save(book);
-		List<BookedFlight> list = user.getFlight();
+		List<BookedFlight> list = user.getFlightBooking();
 		list.add(book);
 		ud.save(user);
 		flight.setNoOfAvilableSeats(emptySeats - noOfSeats);
@@ -75,7 +75,7 @@ public class FlightService implements FlightServiceInterface {
 		cancelBooking.setType("canceled");
 		cancelBooking.setUser(user);
 		bd.save(cancelBooking);
-		List<BookedFlight> list = user.getFlight();
+		List<BookedFlight> list = user.getFlightBooking();
 		list.add(cancelBooking);
 		ud.save(user);
 		return true;

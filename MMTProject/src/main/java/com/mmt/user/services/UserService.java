@@ -63,9 +63,9 @@ public class UserService implements UserServiceInterface{
 	}
 
 	@Override
-	public boolean updateUser(User user) {
+	public boolean updateUser(User user , String userId) {
 	
-		User existUser = ud.findById(user.getUserId()).get();
+		User existUser = ud.findById(userId).get();
 		if(user.getMobileNumber() != null) {
 			existUser.setMobileNumber(user.getMobileNumber());
 		}

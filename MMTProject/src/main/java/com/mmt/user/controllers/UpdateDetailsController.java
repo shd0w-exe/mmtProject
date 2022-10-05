@@ -18,8 +18,7 @@ public class UpdateDetailsController {
 	public String updateUserDetails(User user , HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		if(userId==null) return "userLoginPage";
-		user.setUserId(userId);
-		us.updateUser(user);
+		us.updateUser(user , userId);
 		return "userDetails";
 	}
 //	
