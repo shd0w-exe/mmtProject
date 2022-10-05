@@ -33,7 +33,7 @@ public class Hotel {
 	private int noOfAvilableAcRoom;
 	private int noOfAvilableNonAcRoom;
 	private Boolean isAc;
-
+	
 	public Boolean getIsAc() {
 		return isAc;
 	}
