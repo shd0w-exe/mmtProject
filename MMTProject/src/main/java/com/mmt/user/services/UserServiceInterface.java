@@ -10,6 +10,7 @@ import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.user.model.User;
 
 public interface UserServiceInterface{
+	public String userName(String email , String password);
 	public List<User> allUsers();
 	public boolean createuser(User user);
 	public boolean userLogin(User user);

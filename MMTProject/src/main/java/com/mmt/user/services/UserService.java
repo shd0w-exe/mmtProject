@@ -43,7 +43,9 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public boolean userLogin(User user) {
-		return ud.findByMailIDAndPassword(user.getMailID(), user.getPassword());
+		User existUser= ud.findByMailIDAndPassword(user.getMailID(), user.getPassword());
+		if(existUser==null) return false;
+		return true;
 	}
 
 	@Override
@@ -54,11 +56,10 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public boolean deleteUser(String userId , String password) {
-		if(ud.findByUserIdAndPassword(userId, password)) {
+		User existUser= ud.findByUserIdAndPassword(userId, password);
+		if(existUser==null) return false;
 			ud.deleteById(userId);
 			return true;
-		}
-		return false;
 	}
 
 	@Override
@@ -157,6 +158,12 @@ public class UserService implements UserServiceInterface{
 	public Address viewAddress(String userId) {
 		User user = ud.findById(userId).get();
 		return  user.getAddress();
+	}
+
+	@Override
+	public String userName(String email, String password) {
+		User user = ud.findByMailIDAndPassword(email, password);
+		return user.getUserId();
 	}
 	
 	

@@ -14,9 +14,9 @@
 <body>
    <div class="login-box">
       <h1>Login</h1>
-      <form action="loginUser">
-        <label>UserId</label>
-        <input type="text" name="userId"placeholder="" />
+      <form action="userLogin">
+        <label>EmailID</label>
+        <input type="text" name="mailID"placeholder="" />
         <label>Password</label>
         <input type="password" name="password"placeholder="" />
         <input type="submit" value="Submit" />

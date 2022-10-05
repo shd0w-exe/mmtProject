@@ -23,6 +23,7 @@ public class ViewUserDetails {
 			return "userLoginPage";
 		}
 		User user = us.viewUser(userId);
+		System.out.println(user.getFirstName());
 		m.addAttribute("user", user);
 		return "userDetails";
 	}

@@ -14,10 +14,10 @@
   <p class="dropbtn">Profile</p>
   <div class="dropdown-content">
   <a href="printUserDetails">View Profile</a>
-  <a href="updateLink">Update Profile</a>
-  <a href="viewAddress">View Address</a>
-  <a href="addAddressLink">Add Address</a>
-  <a href="deleteLink">Delete Account</a>
+  <a href="updateUserDetails">Update Profile</a>
+  <a href="viewUserAddress">View Address</a>
+  <a href="updateUserAddress">Add Address</a>
+  <a href="deleteUserByUser">Delete Account</a>
   </div>
   </div>
   <div class="dropdown">

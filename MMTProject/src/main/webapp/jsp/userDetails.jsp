@@ -30,39 +30,38 @@
 <h2>profile</h2>
 <body>
 <form>
-<c:forEach items="${user}" var="pu">
+
 <table style="width:30%">
   <tr>
     
     <th>UserId</th>
-    <td>${pu.userId}</td>
+    <td>${user.userId}</td>
     </tr>
     <tr>
     <th>FirstName</th>
-    <td>${pu.firstName}</td>
+    <td>${user.firstName}</td>
     </tr>
     <tr>
     <th>MiddleName</th>
-    <td>${pu.middleName}</td>
+    <td>${user.middleName}</td>
     </tr>
     <tr>
     <th>LastName</th>
-    <td>${pu.lastName}</td>
+    <td>${user.lastName}</td>
     </tr>
     <tr>
     <th>MobileNumber</th>
-    <td>${pu.mobileNumber}</td>
+    <td>${user.mobileNumber}</td>
     </tr>
     <tr>
     <th>Email</th>
-    <td>${pu.mailId}</td>
+    <td>${user.mailID}</td>
     </tr>
     <tr>
     <th>Password</th>
-    <td>${pu.password}</td>
+    <td>${user.password}</td>
   </tr>
   </table>
-</c:forEach>
 </form>
 <form action="updateUserDetailsPage">
 <input type="submit" value="Update Profile">
