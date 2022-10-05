@@ -21,6 +21,7 @@ public class BookFlightController {
 	@RequestMapping("bookFlight") //-- bookFlightPage
 	public String bookFlight(Flight flight , @RequestParam("noOfSeats")int noOfSeats ,@RequestParam("flightId")String flightId ,HttpSession session) {
 		String userId = (String) session.getAttribute("user");
+		if(userId== null) return "userLoginPage";
 		if(fs.bookFlight(userId, flightId, noOfSeats)) return "succesfullyBookedFlight";
 		return "BookedFlightFailed";
 	}

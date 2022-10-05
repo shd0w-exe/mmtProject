@@ -98,6 +98,14 @@ public class FlightService implements FlightServiceInterface {
 
 
 
+	@Override
+	public Flight viewFlightDetails(String flight) {
+		// TODO Auto-generated method stub
+		return fd.findById(flight).get();
+	}
+
+
+
 	
 
 

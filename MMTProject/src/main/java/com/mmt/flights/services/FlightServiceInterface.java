@@ -13,5 +13,5 @@ public interface FlightServiceInterface {
 	public int noOfSeats(String flightId );
 	public boolean isSeatsAvilable(String flightId , int noOfSeats);
 	public boolean cancelFlight(String bookingId);
-	
+	public Flight viewFlightDetails(String flight);
 }
