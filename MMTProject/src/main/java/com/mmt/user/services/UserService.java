@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.mmt.address.dao.AddressDao;
+import com.mmt.address.model.Address;
 import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.bookedHotel.dao.BookedHotelDao;
@@ -22,6 +24,10 @@ public class UserService implements UserServiceInterface{
 	
 	@Autowired
 	private BookedHotelDao bhd;
+	
+	@Autowired
+	private AddressDao ad;
+	
 	@Override
 	public List<User> allUsers() {
 		return ud.findAll();
@@ -114,14 +120,34 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public List<BookedHotel> allBookedHotels(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		User user = ud.findById(userId).get();
+		return bhd.findByUser(user);
 	}
 
 	@Override
 	public List<BookedFlight> allBookedFlight(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = ud.findById(userId).get();
+		return bfd.findByUser(user);
 	}
+
+	@Override
+	public boolean updateUserAddress(Address address, String userId) {
+		User user = ud.findById(userId).get();
+		Address oldAddress = user.getAddress();
+		if(address.getArea()!=null) oldAddress.setArea(address.getArea());
+		if(address.getCity()!=null) oldAddress.setCity(address.getCity());
+		if(address.getCountry()!=null)oldAddress.setCountry(address.getCountry());
+		if(address.getHouseNo()!=null) oldAddress.setHouseNo(address.getHouseNo());
+		if(address.getPinCode()==0) oldAddress.setPinCode(address.getPinCode());
+		if(address.getState()!=null) oldAddress.setState(address.getState());
+		if(address.getStreetName()!=null) oldAddress.setStreetName(address.getStreetName());
+		user.setAddress(oldAddress);
+		ud.save(user);
+		ad.save(oldAddress);
+		return false;
+	}
+	
+	
 
 }

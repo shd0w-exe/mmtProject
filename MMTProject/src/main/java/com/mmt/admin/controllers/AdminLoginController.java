@@ -14,7 +14,7 @@ public class AdminLoginController {
 	private AdminServiceInterface as;
 	@RequestMapping("adminlogin")
 	public String getAdminLogin() {
-		return "adminLoginForm"
+		return "adminLoginForm";
 	}
 	
 	@RequestMapping("adminLogin" )//adminLoginForm -- jsp

@@ -41,7 +41,8 @@ public class FlightService implements FlightServiceInterface {
 
 
 	@Override
-	public boolean bookFlight(User user, String flightId, int noOfSeats) {
+	public boolean bookFlight(String userId, String flightId, int noOfSeats) {
+		User user =ud.findById(userId).get();
 		Flight flight = fd.findById(flightId).get();
 		int emptySeats = flight.getNoOfSeats();
 		if(emptySeats < noOfSeats) return false;
@@ -49,7 +50,7 @@ public class FlightService implements FlightServiceInterface {
 		book.setBookedFlightId(flightId);
 		book.setUser(user);
 		book.setNoOfSeats(noOfSeats);
-		book.setPrice(noOfSeats * flight.getPricePerSeat());
+		book.setPrice(noOfSeats * flight.getGetPricePerSeat());
 		bd.save(book);
 		List<BookedFlight> list = user.getFlight();
 		list.add(book);
