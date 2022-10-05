@@ -1,5 +1,6 @@
 package com.mmt.address.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,7 +34,7 @@ public class Address {
 	private int pinCode =0;
 	private String country;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private User userd;
 	
 	public String getHouseNo() {
@@ -77,6 +78,18 @@ public class Address {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public String getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
+	}
+	public User getUserd() {
+		return userd;
+	}
+	public void setUserd(User userd) {
+		this.userd = userd;
 	}
 	
 

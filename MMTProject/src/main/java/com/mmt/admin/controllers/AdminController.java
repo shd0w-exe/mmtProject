@@ -1,5 +1,12 @@
 package com.mmt.admin.controllers;
 
-public class AdminController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+public class AdminController {
+	@RequestMapping("adminLoginNav")
+	public String adminLogin() {
+		return "adminLoginPage";
+	}
 }

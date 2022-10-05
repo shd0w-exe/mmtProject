@@ -20,4 +20,14 @@ public class UserNavigationsController {
 	public String userLoginNav() {
 		return "userLoginPage";
 	}
+	
+//	@RequestMapping("updateUserAddressPage")
+//	public String updateUserAddressPage() {
+//		return "userUpdateAddress";
+//	}
+//	
+//	@RequestMapping("addAddressToUser")
+//	public String addAddressToUser() {
+//		return "addAddressUser";
+//	}
 }

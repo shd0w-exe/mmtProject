@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mmt.address.model.Address;
 import com.mmt.user.model.User;
 import com.mmt.user.services.UserServiceInterface;
 
@@ -28,14 +27,14 @@ public class ViewUserDetails {
 		return "userDetails";
 	}
 	
-	@RequestMapping("viewUserAddress")
-	public String viewUserAddress(HttpSession session , Model m) {
-		String userId = (String) session.getAttribute("userId");
-		if(userId==null) {
-			return "userLoginPage";
-		}
-		Address address = us.viewAddress(userId);
-		m.addAttribute("address", address);
-		return "userDetails";
-	}
+//	@RequestMapping("viewUserAddress")
+//	public String viewUserAddress(HttpSession session , Model m) {
+//		String userId = (String) session.getAttribute("userId");
+//		if(userId==null) {
+//			return "userLoginPage";
+//		}
+//		Address address = us.viewAddress(userId);
+//		m.addAttribute("address", address);
+//		return "userAddressDetails";
+//	}
 }

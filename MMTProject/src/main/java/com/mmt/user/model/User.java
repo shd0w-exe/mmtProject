@@ -9,13 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import com.mmt.address.model.Address;
+
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
@@ -36,20 +36,20 @@ public class User {
 	private String mobileNumber;
 	private String mailID;
 	private String password;
-	@OneToOne(mappedBy = "userd")
-	private Address address;
+//	@OneToOne(mappedBy = "userd")
+//	private Address address;
 	@OneToMany(mappedBy = "user")
 	private List<BookedHotel> hotelBooking = new ArrayList<>();
 	@OneToMany(mappedBy = "user")
 	private List<BookedFlight> flightBooking = new ArrayList<>();
 	//sample comment
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 	public String getUserId() {
 		return userId;

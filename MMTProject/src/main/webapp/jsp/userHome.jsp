@@ -14,9 +14,9 @@
   <p class="dropbtn">Profile</p>
   <div class="dropdown-content">
   <a href="printUserDetails">View Profile</a>
-  <a href="updateUserDetails">Update Profile</a>
-  <a href="viewUserAddress">View Address</a>
-  <a href="updateUserAddress">Add Address</a>
+<!--   <a href="updateUserDetails">Update Profile</a> -->
+<!--   <a href="viewUserAddress">View Address</a> -->
+<!--   <a href="addAddressToUser">Add Address</a> -->
   <a href="deleteUserByUser">Delete Account</a>
   </div>
   </div>
