@@ -12,8 +12,7 @@ import com.mmt.user.services.UserServiceInterface;
 
 @Controller
 public class UserBookingsController {
-	@Autowired
-	private UserServiceInterface us;
+	
 	
 	@Autowired
 	private FlightServiceInterface fs;
@@ -27,4 +26,5 @@ public class UserBookingsController {
 		fs.bookFlight(userId, flight, noOfSeats);
 		return "conformBooking";
 	}
+	
 }
