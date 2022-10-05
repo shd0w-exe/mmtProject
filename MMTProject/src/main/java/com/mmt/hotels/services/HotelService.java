@@ -3,7 +3,9 @@ package com.mmt.hotels.services;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mmt.bookedHotel.dao.BookedHotelDao;
 import com.mmt.bookedHotel.model.BookedHotel;
@@ -11,6 +13,8 @@ import com.mmt.hotels.dao.HotelDao;
 import com.mmt.hotels.model.Hotel;
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
+
+@Service
 
 public class HotelService implements HotelServiceInterface {
 	
@@ -38,7 +42,7 @@ public class HotelService implements HotelServiceInterface {
 	@Override
 	public List<Hotel> hotelAtDestinationCityAc(String city) {
 		
-		return hd.findByHotelCityAndisAcTrue(city);
+		return hd.findByHotelCityAndIsAcTrue(city);
 	}
 
 	@Override
@@ -109,7 +113,7 @@ public class HotelService implements HotelServiceInterface {
 
 	@Override
 	public List<Hotel> hotelAtDestinationCityNonAc(String city) {
-		return hd.findByHotelCityAndisAcFalse(city);
+		return hd.findByHotelCityAndIsAcFalse(city);
 	}
 
 }

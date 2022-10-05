@@ -13,9 +13,9 @@ public class UpdateHotelsController {
 	@Autowired
 	private AdminServiceInterface as;
 	
-	@RequestMapping("updateHotel") // --- updateHotelPage
-	public String updateHotel(Hotel hotel) {
-		as.updateHoetl(hotel);
-		return "hotelUpdatedSuccesfully";
-	}
+//	@RequestMapping("updateHotel") // --- updateHotelPage
+//	public String updateHotel(Hotel hotel) {
+//		as.updateHoetl(hotel);
+//		return "hotelUpdatedSuccesfully";
+//	}
 }

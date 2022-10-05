@@ -34,7 +34,7 @@ public class Flight {
 	private String flightDestination;
 	private int noOfSeats ;
 	private int noOfAvilableSeats;
-	private int getPricePerSeat;
+	private int pricePerSeat;
 	
 	
 	
@@ -71,12 +71,14 @@ public class Flight {
 	}
 	
 
-	public int getGetPricePerSeat() {
-		return getPricePerSeat;
+	
+
+	public int getPricePerSeat() {
+		return pricePerSeat;
 	}
 
-	public void setGetPricePerSeat(int getPricePerSeat) {
-		this.getPricePerSeat = getPricePerSeat;
+	public void setPricePerSeat(int pricePerSeat) {
+		this.pricePerSeat = pricePerSeat;
 	}
 
 	public void setNoOfAvilableSeats(int noOfAvilableSeats) {

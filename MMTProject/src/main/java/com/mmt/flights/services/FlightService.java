@@ -50,7 +50,7 @@ public class FlightService implements FlightServiceInterface {
 		book.setBookedFlightId(flightId);
 		book.setUser(user);
 		book.setNoOfSeats(noOfSeats);
-		book.setPrice(noOfSeats * flight.getGetPricePerSeat());
+		book.setPrice(noOfSeats * flight.getPricePerSeat());
 		bd.save(book);
 		List<BookedFlight> list = user.getFlight();
 		list.add(book);

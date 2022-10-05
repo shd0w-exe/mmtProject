@@ -3,6 +3,7 @@ package com.mmt.user.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mmt.address.dao.AddressDao;
 import com.mmt.address.model.Address;
@@ -14,6 +15,7 @@ import com.mmt.bookedHotel.model.BookedHotel;
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
 
+@Service
 public class UserService implements UserServiceInterface{
 	
 	@Autowired
@@ -41,7 +43,7 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public boolean userLogin(User user) {
-		return ud.findByUserIdAndPassword(user.getUserId(), user.getPassword());
+		return ud.findByUserIdAndMailID(user.getUserId(), user.getMailID());
 	}
 
 	@Override
