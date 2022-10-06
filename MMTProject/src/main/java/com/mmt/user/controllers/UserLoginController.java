@@ -29,6 +29,6 @@ public class UserLoginController {
 	@RequestMapping("userLogout")
 	public String userLogot(HttpSession session ) {
 		session.removeAttribute("userId");
-		return "userLoginPage";
+		return "userHome";
 	}
 }

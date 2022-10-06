@@ -10,8 +10,7 @@
 <body>
 <c:forEach items="${flightList}" var="list">
 <table style="width:30%">
-  <tr>
-    
+    <tr>
     <th>Flight Number</th>
     <td>${list.flightNumber}</td>
     </tr>
