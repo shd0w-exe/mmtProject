@@ -23,4 +23,11 @@ public class ViewFlightsController {
 		m.addAttribute("flightList" , list);
 		return "resultFlightPage";
 	}
+	
+	@RequestMapping("checkFlight")
+	public String checkFlight(@RequestParam("flightId")String flightId , Model m) {
+		Flight flight = fs.viewFlightDetails(flightId);
+		m.addAttribute("flight" , flight);
+		return "bookFlightPage";
+	}
 }

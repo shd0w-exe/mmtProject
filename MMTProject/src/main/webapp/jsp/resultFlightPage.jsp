@@ -9,6 +9,8 @@
 </head>
 <body>
 <c:forEach items="${flightList}" var="list">
+<form action="checkFlight">
+
 <table style="width:30%">
     <tr>
     <th>Flight Number</th>
@@ -18,23 +20,10 @@
     <th>Airline Name</th>
     <td>${list.airlineName}</td>
     </tr>
-    <tr>
-    <th>Duration</th>
-    <td>${list.flightDuration}</td>
-    </tr>
-    <tr>
-    <th>Arrival</th>
-    <td>${list.flightArrival}</td>
-    </tr>
-    <tr>
-    <th>Avilable Seat</th>
-    <td>${list.noOfAvilableSeats}</td>
-    </tr>
-    <tr>
-    <th>Price Per Seat</th>
-    <td>${list.pricePerSeat}</td>
-    </tr>
   </table>
+  <input type="hidden" value="${list.flightId}" name ="flightId">
+  <input type ="submit" value="check">
+</form>
 </c:forEach>
 </body>
 </html>
