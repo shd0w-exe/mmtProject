@@ -24,9 +24,14 @@ public class BookFlightController {
 	public String bookFlight(Flight flight , @RequestParam("noOfSeats")int noOfSeats ,@RequestParam("flightId")String flightId ,HttpSession session,Model m) {
 		String userId = (String) session.getAttribute("userId");
 		if(userId== null) return "userLoginPage";
-		if(fs.bookFlight(userId, flightId, noOfSeats)) {
-			return "flightPayment";
-		}
+		System.out.println(userId+" "+ flightId+" "+ noOfSeats);
+		//if() { // payment success
+			if(fs.bookFlight(userId, flightId, noOfSeats)) {
+				return "flightPayment";
+			}
+		//}else {
+			//pyamet failed
+		//}
 		m.addAttribute("message" , "not enough seats");
 		return "bookFlightPage";
 	}

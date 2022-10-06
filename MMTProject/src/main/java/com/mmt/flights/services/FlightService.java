@@ -47,7 +47,7 @@ public class FlightService implements FlightServiceInterface {
 		int emptySeats = flight.getNoOfSeats();
 		if(emptySeats < noOfSeats) return false;
 		BookedFlight book = new BookedFlight();
-		book.setBookedFlightId(flightId);
+		book.setFlight(flight);
 		book.setUser(user);
 		book.setNoOfSeats(noOfSeats);
 		book.setPrice(noOfSeats * flight.getPricePerSeat());

@@ -22,6 +22,7 @@
     </tr>
   </table>
   <input type="hidden" value="${list.flightId}" name ="flightId">
+  
   <input type ="submit" value="check">
 </form>
 </c:forEach>
