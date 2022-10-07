@@ -25,6 +25,7 @@ public interface UserServiceInterface{
 	public boolean updateBookingFlight(BookedFlight booking);
 	public List<BookedHotel> allBookedHotels(String userId);
 	public List<BookedFlight> allBookedFlight(String userId);
+
 	//public boolean updateUserAddress(Address address,String userId);
 	//public boolean addAddress(Address address,String userId);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.mmt.flights.model.Flight;
 import com.mmt.flights.services.FlightService;
 import com.mmt.flights.services.FlightServiceInterface;
+import com.mmt.payment.CardDetails;
 
 
 
@@ -19,19 +20,25 @@ public class BookFlightController {
 	@Autowired
 	private FlightServiceInterface fs;
 	
+//	@RequestMapping("payment")
+//	public String payment(CardDetails cd , Model m) {
+//		if(fs.isPaymentDoneFlight(cd)) {
+//			m.addAttribute("isDone" , "true");
+//			return "userHome";
+//		}else {
+//			m.addAttribute("isDone" , "false");
+//			return "flightPayment";
+//		}
+//	}
 	
 	@RequestMapping("bookFlight") //-- bookFlightPage
 	public String bookFlight(Flight flight , @RequestParam("noOfSeats")int noOfSeats ,@RequestParam("flightId")String flightId ,HttpSession session,Model m) {
 		String userId = (String) session.getAttribute("userId");
 		if(userId== null) return "userLoginPage";
-		System.out.println(userId+" "+ flightId+" "+ noOfSeats);
-		//if() { // payment success
-			if(fs.bookFlight(userId, flightId, noOfSeats)) {
-				return "flightPayment";
-			}
-		//}else {
-			//pyamet failed
-		//}
+	
+			if(fs.bookFlight(userId, flightId, noOfSeats))
+			return "userHome";
+		
 		m.addAttribute("message" , "not enough seats");
 		return "bookFlightPage";
 	}

@@ -32,7 +32,7 @@
   <p class="dropbtn">Flights</p>
   <div class="dropdown-content">
   <a href="searchFlight">Search Flights</a>
-  <a href="Update Profile">My Flights Bookings</a>
+  <a href="viewMyFlightBooking">My Flights Bookings</a>
   </div>
   </div>
   <div class="dropdown">

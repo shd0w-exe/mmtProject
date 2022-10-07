@@ -9,6 +9,7 @@ import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.flights.dao.FlightDao;
 import com.mmt.flights.model.Flight;
+import com.mmt.payment.CardDetails;
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
 
@@ -104,6 +105,24 @@ public class FlightService implements FlightServiceInterface {
 	public Flight viewFlightDetails(String flight) {
 		// TODO Auto-generated method stub
 		return fd.findById(flight).get();
+	}
+
+
+
+	@Override
+	public boolean isPaymentDoneFlight(CardDetails cd) {
+		// TODO Auto-generated method stub
+		
+		return true;
+	}
+
+
+
+	@Override
+	public float flightPrice(String flightId, int noOfSeats) {
+		// TODO Auto-generated method stub
+		Flight flight = fd.findById(flightId).get();
+		return noOfSeats * flight.getPricePerSeat();
 	}
 
 
