@@ -45,7 +45,7 @@ public class ViewFlightDetailsController {
 	public String viewMyFlightBooking(Model m , HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		if(userId== null) return "userLoginPage";
-		m.addAttribute("list" , us.allBookedFlight(userId));
+		m.addAttribute("list" , us.allBookedFlight(userId)).addAttribute("flightList" );
 		return "viewMyBookingPage";
 	}
 

@@ -17,12 +17,24 @@
     <td>${list.bookedFlightId}</td>
     </tr>
     <tr>
+    <th>source</th>
+    <td>${list.flight.flightSource}</td>
+    </tr>
+    <tr>
+    <th>Destination</th>
+    <td>${list.flight.flightDestination}</td>
+    </tr>
+    <tr>
     <th>No of Seats</th>
     <td>${list.noOfSeats}</td>
     </tr>
     <tr>
     <th>Total Price</th>
     <td>${list.price}</td>
+    </tr>
+     <tr>
+    <th>Flight No</th>
+    <td>${list.flight.flightNumber}</td>
     </tr>
   </table>
  

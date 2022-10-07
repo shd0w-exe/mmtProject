@@ -11,7 +11,6 @@ import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
 import com.mmt.bookedHotel.dao.BookedHotelDao;
 import com.mmt.bookedHotel.model.BookedHotel;
-
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
 
@@ -27,8 +26,6 @@ public class UserService implements UserServiceInterface{
 	@Autowired
 	private BookedHotelDao bhd;
 	
-	@Autowired
-	private AddressDao ad;
 	
 	@Override
 	public List<User> allUsers() {
@@ -136,6 +133,8 @@ public class UserService implements UserServiceInterface{
 		User user = ud.findById(userId).get();
 		return bfd.findByUser(user);
 	}
+	
+	
 
 //	@Override
 //	public boolean updateUserAddress(Address address, String userId) {
