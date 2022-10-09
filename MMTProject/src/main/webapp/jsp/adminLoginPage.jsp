@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-<body>
+</head>
 <body>
    <div class="login-box">
       <h1>Login</h1>

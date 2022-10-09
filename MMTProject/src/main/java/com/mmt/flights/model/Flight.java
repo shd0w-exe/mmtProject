@@ -37,17 +37,8 @@ public class Flight {
 	private int pricePerSeat;
 	
 	
+
 	
-	@OneToMany(mappedBy = "flight")
-	private List<BookedFlight> bookedflights;
-
-	public List<BookedFlight> getBookedflights() {
-		return bookedflights;
-	}
-
-	public void setBookedflights(List<BookedFlight> bookedflights) {
-		this.bookedflights = bookedflights;
-	}
 
 	public String getFlightSource() {
 		return flightSource;

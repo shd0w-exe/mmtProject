@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Responsive Payment getway form design in Hindi</title>
+	<title>Payment</title>
 	<link rel="stylesheet" type="text/css" href="/css/payment.css">
 </head>
 <body>
@@ -19,15 +19,15 @@
 			<h3>BILLING ADDRESS</h3>
 			<form>
 				Full name
-				<input type="text" name="" placeholder="Enter name">
+				<input type="text" name="nameOnCard" placeholder="Enter name">
 				Email
-				<input type="text" name="" placeholder="Enter email">
+				<input type="text" name="email" placeholder="Enter email">
 
 				Address
-				<input type="text" name="" placeholder="Enter address">
+				<input type="text" name="address" placeholder="Enter address">
 				
 				City
-				<input type="text" name="" placeholder="Enter City">
+				<input type="text" name="city" placeholder="Enter City">
 				<div id="zip">
 					<label>
 						State
@@ -41,7 +41,7 @@
 					</label>
 						<label>
 						Zip code
-						<input type="number" name="" placeholder="Zip code">
+						<input type="number" name="zipCode" placeholder="Zip code">
 					</label>
 				</div>
 			</form>
@@ -55,10 +55,10 @@
 				<br><br>
 
 				Credit card number
-			<input type="text" name="" placeholder="Enter card number">
+			<input type="text" name="cardNo" placeholder="Enter card number">
 				
 				Exp month
-				<input type="text" name="" placeholder="Enter Month">
+				<input type="text" name="expMonth" placeholder="Enter Month">
 				<div id="zip">
 					<label>
 						Exp year
@@ -72,7 +72,7 @@
 					</label>
 						<label>
 						CVV
-						<input type="number" name="" placeholder="CVV">
+						<input type="number" name="cvv" placeholder="CVV">
 					</label>
 				</div>
 				<input type="hidden" value="${flightId}" name ="flightId">

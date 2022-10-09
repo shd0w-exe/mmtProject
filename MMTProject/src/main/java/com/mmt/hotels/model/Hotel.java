@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -17,20 +18,29 @@ import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 @Table(name = "hoteldetails")
 public class Hotel {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_seq")
-	@GenericGenerator(name = "address_seq", strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator", parameters = {
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hotel_seq")
+	@GenericGenerator(name = "hotel_seq", strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator", parameters = {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "Address_"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "hotel_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String hotelId;
+	@NotEmpty
 	private String hotelName;
+	@NotEmpty
 	private String hotelBrand;
+	@NotEmpty
 	private float priceAcRoom;
+	@NotEmpty
 	private float priceNonAcRoom;
+	@NotEmpty
 	private String hotelCity;
+	@NotEmpty
 	private int noOfAcRooms;
+	@NotEmpty
 	private int noOfNonAcRooms;
+	
 	private int noOfAvilableAcRoom;
+
 	private int noOfAvilableNonAcRoom;
 	private Boolean isAc;
 	

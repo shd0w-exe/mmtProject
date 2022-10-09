@@ -21,21 +21,6 @@ public class UpdateDetailsController {
 		us.updateUser(user , userId);
 		return "userDetails";
 	}
-//	
-//	@RequestMapping("updateUserAddress")
-//	public String updateUserAddress(Address address,HttpSession session) {
-//		String userId = (String) session.getAttribute("userId");
-//		if(userId==null) return "userLoginPage";
-//		us.updateUserAddress(address, userId);
-//		return "userAddressDetails";
-//	}
-//	
-//	@RequestMapping("addUserAddress")
-//	public String addUserAddress(Address address,HttpSession session) {
-//		String userId = (String) session.getAttribute("userId");
-//		if(userId==null) return "userLoginPage";
-//		us.addAddress(address, userId);
-//		return "userAddressDetails";
-//	}
+
 	
 }

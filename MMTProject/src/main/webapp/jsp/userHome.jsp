@@ -35,18 +35,8 @@
   <a href="viewMyFlightBooking">My Flights Bookings</a>
   </div>
   </div>
-  <div class="dropdown">
-  <p class="dropbtn">Contact</p>
-  <div class="dropdown-content">
-  <a href="View Profile">View Contacts</a>
-  </div>
-  </div>
-  <div class="dropdown">
-  <p class="dropbtn">Help</p>
-  <div class="dropdown-content">
-  <a href="View Profile">Contact Us</a>
-  </div>
-  </div>
+ 
+  
   </nav>
   <div class="banner-area">
        

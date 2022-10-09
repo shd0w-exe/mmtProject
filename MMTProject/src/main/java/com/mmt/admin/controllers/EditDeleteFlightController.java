@@ -16,14 +16,21 @@ public class EditDeleteFlightController {
 	
 	@RequestMapping("updateFlight") //-- updateFlightPage
 	public String updateFlight(Flight  flight , Model m) {
-		as.updateFlight(flight);
-		m.addAttribute("message" , "flight added");
+		if(as.updateFlight(flight)) {
+			m.addAttribute("message" , "flight updated");
+			return "updateFlightPage";
+		}
+		m.addAttribute("message" , "flight not found");
 		return "updateFlightPage";
 	}
 	
 	@RequestMapping("deleteFlight") // -- deleteFlightpage
-	public String deleteFlight(@RequestParam("flightId")String flightId) {
-		as.removeFlight(flightId);
-		return "deleteFlightSuccessfully";
+	public String deleteFlight(@RequestParam("flightId")String flightId , Model m) {
+		if(as.removeFlight(flightId)) {
+			m.addAttribute("message" , "flight Deleted");
+			return "removeFlightPage";
+		}
+		m.addAttribute("message" , "flight not found");
+		return "removeFlightPage";
 	}
 }

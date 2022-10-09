@@ -29,7 +29,7 @@ public class BookedFlight {
 	private String bookedFlightId;
 	private int noOfSeats;
 	private int price;
-	@OneToOne
+	@OneToOne ( orphanRemoval = true)
 	private Flight flight;
 	@ManyToOne
 	private User user;

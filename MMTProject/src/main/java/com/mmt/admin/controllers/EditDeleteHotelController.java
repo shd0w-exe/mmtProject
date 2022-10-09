@@ -16,14 +16,22 @@ public class EditDeleteHotelController {
 	
 	@RequestMapping("updateHotel") //-- updateHotelPage
 	public String updateHotel(Hotel hotel , Model m) {
-		as.updateHoetl(hotel);
-		m.addAttribute("message","hotel updated");
-		return "updateHotelSuccessfully";
+		if(as.updateHoetl(hotel)) {
+			m.addAttribute("message","hotel updated");
+			return "adminHome";
+		}
+		m.addAttribute("message","hotel not found");
+		return "updateHotelPage";
 	}
 	
 	@RequestMapping("deleteHotel") //-- deleteHotelPage
-	public String deleteHotel(@RequestParam("hotelId")String hotelId) {
-		as.removeHotel(hotelId);
-		return "removedHotelSuccessfully";
+	public String deleteHotel(@RequestParam("hotelId")String hotelId , Model m) {
+		
+		if(as.removeHotel(hotelId)) {
+			m.addAttribute("message","hotel deleted");
+			return "adminHome";
+		}
+		m.addAttribute("message","Wrong id");
+		return "removeHotelPage";
 	}
 }
