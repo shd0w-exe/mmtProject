@@ -62,6 +62,8 @@ public class HotelService implements HotelServiceInterface {
 			book.setAc(false);
 			price = noOfRooms * hotel.getPriceNonAcRoom();
 		}
+		book.setUser(user);
+		book.setNoOfRooms(noOfRooms);
 		book.setHotel(hotel);
 		book.setPrice(price);
 		book.setType("booked");
@@ -114,6 +116,20 @@ public class HotelService implements HotelServiceInterface {
 	@Override
 	public List<Hotel> hotelAtDestinationCityNonAc(String city) {
 		return hd.findByHotelCityAndIsAcFalse(city);
+	}
+
+	@Override
+	public boolean isRoomAvilable(String hotelId, int noOfRooms, boolean isAc) {
+		// TODO Auto-generated method stub
+		Hotel hotel = hd.findById(hotelId).get();
+		if(isAc) {
+			if(hotel.getNoOfAvilableAcRoom() < noOfRooms) return false;
+			return true;
+		}else if(!isAc) {
+			if(hotel.getNoOfNonAcRooms() < noOfRooms) return false;
+			return true;
+		}
+		return false;
 	}
 
 }

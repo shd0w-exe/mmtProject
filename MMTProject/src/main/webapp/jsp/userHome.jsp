@@ -25,7 +25,7 @@
   <p class="dropbtn">Hotels</p>
   <div class="dropdown-content">
   <a href="searchHotels" >Search Hotels</a>
-  <a href="Update Profile">My Hotel Bookings</a>
+  <a href="viewMyHotelBooking">My Hotel Bookings</a>
   </div>
   </div>
   <div class="dropdown">

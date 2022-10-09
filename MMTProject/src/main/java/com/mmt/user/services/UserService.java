@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mmt.address.dao.AddressDao;
+
 
 import com.mmt.bookedFlight.dao.BookedFlightDao;
 import com.mmt.bookedFlight.model.BookedFlight;
@@ -136,53 +136,13 @@ public class UserService implements UserServiceInterface{
 	
 	
 
-//	@Override
-//	public boolean updateUserAddress(Address address, String userId) {
-//		User user = ud.findById(userId).get();
-//		Address oldAddress = ad.findByUserdUserId(userId);
-//			if(address.getArea()!=null) oldAddress.setArea(address.getArea());
-//			if(address.getCity()!=null) oldAddress.setCity(address.getCity());
-//			if(address.getCountry()!=null)oldAddress.setCountry(address.getCountry());
-//			if(address.getHouseNo()!=null) oldAddress.setHouseNo(address.getHouseNo());
-//			if(address.getPinCode()==0) oldAddress.setPinCode(address.getPinCode());
-//			if(address.getState()!=null) oldAddress.setState(address.getState());
-//			if(address.getStreetName()!=null) oldAddress.setStreetName(address.getStreetName());
-//		user.setAddress(oldAddress);
-//		ud.save(user);
-//		ad.save(oldAddress);
-//		return false;
-//	}
-
-//	@Override
-//	public Address viewAddress(String userId) {
-//		
-//		return  ad.findByUserdUserId(userId);
-//	}
-
 	@Override
 	public String userName(String email, String password) {
 		User user = ud.findByMailIDAndPassword(email, password);
 		return user.getUserId();
 	}
 
-//	@Override
-//	public boolean addAddress(Address address, String userId) {
-//		User user = ud.findById(userId).get();
-//		Address oldAddress = new Address();
-//		oldAddress = new Address();
-//		oldAddress.setArea(address.getArea());
-//		oldAddress.setCity(address.getCity());
-//		oldAddress.setCountry(address.getCountry());
-//		oldAddress.setHouseNo(address.getHouseNo());
-//		oldAddress.setPinCode(address.getPinCode());
-//		oldAddress.setState(address.getState());
-//		oldAddress.setStreetName(address.getStreetName());
-//		oldAddress.setUserd(user);
-//		user.setAddress(oldAddress);
-//		ud.save(user);
-//		ad.save(oldAddress);
-//		return false;
-//	}
+
 	
 	
 
