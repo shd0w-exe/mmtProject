@@ -26,14 +26,12 @@ public class AdminController {
 	}
 	
 	@RequestMapping("goRemoveHotel")
-	public String goRemoveHotel(Model m) {
-		m.addAttribute("hotel" , new Hotel());
+	public String goRemoveHotel() {
 		return "removeHotelPage";
 	}
 	
 	@RequestMapping("goRemoveFlight")
-	public String goRemoveFlight(Model m) {
-		m.addAttribute("flight" , new Flight());
+	public String goRemoveFlight() {
 		return "removeFlightPage";
 	}
 	@RequestMapping("goAddHotel")

@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -31,11 +35,17 @@ public class User {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "User_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String userId;
+	@NotNull
+	@Size(min=3 , max =30)
 	private String firstName;
 	private String middleName;
+	@Size(min=3 , max =30)
 	private String lastName;
+	@Pattern(regexp="(^$|[0-9]{10})")
 	private String mobileNumber;
+	@Email
 	private String mailID;
+	@Size(min=8 , max =15)
 	private String password;
 
 	@OneToMany(mappedBy = "user" , cascade=CascadeType.ALL, orphanRemoval = true)

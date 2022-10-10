@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,21 +25,21 @@ public class Hotel {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "hotel_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String hotelId;
-	
+	@NotEmpty
 	private String hotelName;
-	
+	@NotEmpty
 	private String hotelBrand;
-	
+	@NotNull
 	private float priceAcRoom;
-	
+	@NotNull
 	private float priceNonAcRoom;
-	
+	@NotEmpty
 	private String hotelCity;
-	
+	@NotNull
 	private int noOfAcRooms;
-	
+	@NotNull
 	private int noOfNonAcRooms;
-	
+
 	private int noOfAvilableAcRoom;
 
 	private int noOfAvilableNonAcRoom;

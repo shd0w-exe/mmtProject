@@ -2,9 +2,12 @@ package com.mmt.user.controllers;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mmt.user.model.User;
@@ -16,7 +19,10 @@ public class UserLoginController {
 	private UserServiceInterface us;
 	
 	@RequestMapping("userLogin")
-	public String userLogin(User user , HttpSession session  ,Model m) {
+	public String userLogin(@ModelAttribute("user") User user ,BindingResult br, HttpSession session  ,Model m) {
+		if(br.hasErrors()) {
+			return "userLoginPage";
+		}
 		if(us.userLogin(user)) {
 			String userId = us.userName(user.getMailID(), user.getPassword());
 			session.setAttribute("userId", userId);

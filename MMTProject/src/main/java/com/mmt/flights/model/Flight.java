@@ -1,18 +1,20 @@
 package com.mmt.flights.model;
 
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import com.mmt.bookedFlight.model.BookedFlight;
+
 import com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator;
 
 @Entity
@@ -25,15 +27,24 @@ public class Flight {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "Flight_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String flightId;
+	@NotEmpty
 	private String flightNumber;
+	@NotEmpty
 	private String airlineName;
-	private String flightDuration;
+//	@NotEmpty
+//	private String flightDuration;
+	@NotEmpty
 	private String flightDeparture;
+	@NotEmpty
 	private String flightArrival;
+	@NotEmpty
 	private String flightSource;
+	@NotEmpty
 	private String flightDestination;
+	@NotNull
 	private int noOfSeats ;
 	private int noOfAvilableSeats;
+	@NotNull
 	private int pricePerSeat;
 	
 	
@@ -108,13 +119,13 @@ public class Flight {
 		this.airlineName = airlineName;
 	}
 
-	public String getFlightDuration() {
-		return flightDuration;
-	}
-
-	public void setFlightDuration(String flightDuration) {
-		this.flightDuration = flightDuration;
-	}
+//	public String getFlightDuration() {
+//		return flightDuration;
+//	}
+//
+//	public void setFlightDuration(String flightDuration) {
+//		this.flightDuration = flightDuration;
+//	}
 
 	public String getFlightDeparture() {
 		return flightDeparture;

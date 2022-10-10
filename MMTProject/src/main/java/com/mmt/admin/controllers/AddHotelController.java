@@ -31,13 +31,13 @@ public class AddHotelController {
 //	}
 	
 	@RequestMapping("addHotel") // -- addHotelPage
-	public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel,BindingResult br) {
+	public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel,BindingResult br,Model m) {
 		if(br.hasErrors()) {
 			return "addHotelPage";
 		}
 		else {
 			as.addHotel(hotel);
-			//m.addAttribute("message","hotel Added Successfully");
+			m.addAttribute("message","hotel Added Successfully");
 			return "addHotelPage";
 		}
 	}

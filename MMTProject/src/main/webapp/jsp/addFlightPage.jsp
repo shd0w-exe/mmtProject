@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,28 +11,28 @@
 <body>
 <h3 style="color:#CC6666;">${message}</h3>
  <div class="login-box">
- <form action="addFlight">
+ <form:form action="addFlight" modelAttribute="flight">
  		<h1 style="color:#CC6666;">Add new Flights</h1>
        
-        <input type = "text" name = "airlineName" class ="input" placeholder="Airline Name">
+        <form:input type = "text" path = "airlineName" class ="input" placeholder="Airline Name"/>
        
-        <input type = "text" name = "flightNumber" class ="input" placeholder="Flight Number">
+        <form:input type = "text" path = "flightNumber" class ="input" placeholder="Flight Number"/>
        
-        <input type = "text" name = "flightSource" class ="input" placeholder="Source">
+        <form:input type = "text" path = "flightSource" class ="input" placeholder="Source"/>
        
-        <input type = "text" name = "flightDestination" class ="input" placeholder="Destination">
+        <form:input type = "text" path = "flightDestination" class ="input" placeholder="Destination"/>
        
-        <input type = "text" name = "flightDeparture" class ="input" placeholder="Departure Time">
+        <form:input type = "text" path = "flightDeparture" class ="input" placeholder="Departure Time"/>
        
-        <input type = "text" name = "flightArrival" class ="input" placeholder="Arrival Time">
+        <form:input type = "text" path = "flightArrival" class ="input" placeholder="Arrival Time"/>
         
-        <input type = "number" name = "pricePerSeat" class ="input" placeholder="Price">
+        <form:input type = "number" path = "pricePerSeat" class ="input" placeholder="Price"/>
        
-        <input type = "number" name = "noOfSeats" class ="input" placeholder="Total Seats">
+        <form:input type = "number" path = "noOfSeats" class ="input" placeholder="Total Seats"/>
        
         <input type="submit" value="Submit" />
         <a href = "adminHomePage">Go back to admin Home</a>
-      </form>
+      </form:form>
    </div>
 
 
