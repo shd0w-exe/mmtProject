@@ -20,8 +20,5 @@ public class AdminLoginController {
 		return "adminLoginForm";
 	}
 	
-	@RequestMapping("goAddHotel")
-	public String addHotelNav() {
-		return "addHotelPage";
-	}
+	
 }

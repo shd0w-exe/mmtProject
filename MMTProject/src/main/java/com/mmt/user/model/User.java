@@ -3,6 +3,7 @@ package com.mmt.user.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,20 +37,12 @@ public class User {
 	private String mobileNumber;
 	private String mailID;
 	private String password;
-//	@OneToOne(mappedBy = "userd")
-//	private Address address;
-	@OneToMany(mappedBy = "user")
+
+	@OneToMany(mappedBy = "user" , cascade=CascadeType.ALL, orphanRemoval = true)
 	private List<BookedHotel> hotelBooking = new ArrayList<>();
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",  cascade=CascadeType.ALL ,orphanRemoval = true)
 	private List<BookedFlight> flightBooking = new ArrayList<>();
-	//sample comment
-//	public Address getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
+
 	public String getUserId() {
 		return userId;
 	}

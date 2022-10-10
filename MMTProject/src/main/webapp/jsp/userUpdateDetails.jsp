@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Update </title>
  <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
@@ -23,7 +23,7 @@
 <input type="text" name="mailID" placeholder=""/>
 <label>Password</label>
 <input type="text" name="password" placeholder=""/>
-<div>                     </div>
+
 <input type="submit"  value="submit">
 </form>
 </div>

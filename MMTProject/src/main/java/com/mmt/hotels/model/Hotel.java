@@ -24,19 +24,19 @@ public class Hotel {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "hotel_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String hotelId;
-	@NotEmpty
+	
 	private String hotelName;
-	@NotEmpty
+	
 	private String hotelBrand;
-	@NotEmpty
+	
 	private float priceAcRoom;
-	@NotEmpty
+	
 	private float priceNonAcRoom;
-	@NotEmpty
+	
 	private String hotelCity;
-	@NotEmpty
+	
 	private int noOfAcRooms;
-	@NotEmpty
+	
 	private int noOfNonAcRooms;
 	
 	private int noOfAvilableAcRoom;

@@ -75,18 +75,18 @@ public class AdminService implements AdminServiceInterface {
 	public boolean updateHoetl(Hotel hotel) {
 		Hotel existHotel = hd.findById(hotel.getHotelId()).get();
 		if(existHotel==null) return false;
-		if(hotel.getHotelBrand()!=null) existHotel.setHotelBrand(hotel.getHotelBrand());
-		if(hotel.getHotelCity()!=null) existHotel.setHotelCity(hotel.getHotelCity());
-		if(hotel.getHotelName()!=null) existHotel.setHotelName(hotel.getHotelName());
-		if(hotel.getNoOfAcRooms()!= 0) existHotel.setNoOfAcRooms(hotel.getNoOfAcRooms());
-		if(hotel.getNoOfNonAcRooms()!=0) existHotel.setNoOfNonAcRooms(hotel.getNoOfNonAcRooms());
-		if(hotel.getPriceAcRoom()!= 0) existHotel.setPriceAcRoom(hotel.getPriceAcRoom());
-		if(hotel.getPriceNonAcRoom()!=0)existHotel.setPriceNonAcRoom(hotel.getPriceNonAcRoom());
-		if(existHotel.getNoOfAcRooms()>0)existHotel.setIsAc(true);
-		if(existHotel.getNoOfAcRooms()<=0)existHotel.setIsAc(false);
-		existHotel.setNoOfAvilableAcRoom(existHotel.getNoOfAcRooms());
-		existHotel.setNoOfAvilableNonAcRoom(existHotel.getNoOfNonAcRooms());
-		hd.save(existHotel);
+		if(hotel.getHotelBrand().isBlank()) hotel.setHotelBrand(existHotel.getHotelBrand());
+		if(hotel.getHotelCity().isBlank()) hotel.setHotelCity(existHotel.getHotelCity());
+		if(hotel.getHotelName().isBlank()) hotel.setHotelName(existHotel.getHotelName());
+		if(hotel.getNoOfAcRooms()==0) hotel.setNoOfAcRooms(existHotel.getNoOfAcRooms());
+		if(hotel.getNoOfNonAcRooms()==0) hotel.setNoOfNonAcRooms(existHotel.getNoOfNonAcRooms());
+		if(hotel.getPriceAcRoom()!= existHotel.getPriceAcRoom()) hotel.setPriceAcRoom(existHotel.getPriceAcRoom());
+		if(hotel.getPriceNonAcRoom()!=existHotel.getPriceAcRoom())hotel.setPriceNonAcRoom(existHotel.getPriceNonAcRoom());
+		if(hotel.getNoOfAcRooms()>0)hotel.setIsAc(true);
+		if(hotel.getNoOfAcRooms()<=0)hotel.setIsAc(false);
+		hotel.setNoOfAvilableAcRoom(hotel.getNoOfAcRooms());
+		hotel.setNoOfAvilableNonAcRoom(hotel.getNoOfNonAcRooms());
+		hd.save(hotel);
 		return true;
 	}
 
