@@ -35,9 +35,14 @@ public class BookHotelsController {
 		
 	
 	@RequestMapping("bookHotel") //--------bookHotelForm
-	public String bookHotel(@RequestParam("hotelId")String hotelId , @RequestParam("noOfRooms")int noOfRooms,@RequestParam("isAc")boolean isAc, HttpSession session) {
+	public String bookHotel(@Valid @ModelAttribute("cardHotel")CardDetails cardHotel, BindingResult br ,HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) return "userLogin";
+		if(br.hasErrors()) return "hotelPaymentPage";
+		if(userId==null) return "redirect:/userLoginNav";
+		String hotelId = (String) session.getAttribute("hotelId");
+		boolean isAc = (boolean) session.getAttribute("isAc");
+		int noOfRooms = (int) session.getAttribute("noOfRooms");
+		System.out.println(hotelId+" "+isAc+" "+noOfRooms);
 		hs.bookHotel(hotelId,userId, noOfRooms, isAc);
 		return "userHome";
 	}

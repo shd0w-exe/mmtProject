@@ -16,7 +16,8 @@ public class UserNavigationsController {
 	}
 	
 	@RequestMapping("userSignUp")
-	public String userSignUpPage() {
+	public String userSignUpPage(Model m) {
+		m.addAttribute("user" ,new User());
 		return "userSignUpPage";
 	}
 	

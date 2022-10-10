@@ -13,7 +13,7 @@
  <form action="updateFlight">
  		<h1 style="color:#CC6666;">Add new Flights</h1>
  		
- 		  <input type = "text" name = "flightId" class ="input" value="" placeholder="Enter Flight ID">
+ 		<input type = "text" name = "flightId" class ="input" value="" placeholder="Enter Flight ID">
        
         <input type = "text" name = "airlineName" class ="input" value="" placeholder="Airline Name">
        

@@ -33,7 +33,7 @@ public class ViewHotelsController {
 	@RequestMapping("viewMyHotelBooking")
 	public String viewMyHotelBooking(HttpSession session,Model m) {
 		String userId = (String) session.getAttribute("userId" );
-		if(userId== null) return "userLoginPage";
+		if(userId== null) return "redirect:/userLoginNav";
 		m.addAttribute("hotelList" , us.allBookedHotels(userId));
 		return "viewMyHotelBookingPage";
 	}

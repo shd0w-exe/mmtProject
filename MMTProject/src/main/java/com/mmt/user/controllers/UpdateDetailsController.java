@@ -17,7 +17,7 @@ public class UpdateDetailsController {
 	@RequestMapping("updateUserDetails")
 	public String updateUserDetails(User user , HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) return "userLoginPage";
+		if(userId==null) return "redirect:/userLoginNav";
 		us.updateUser(user , userId);
 		return "userDetails";
 	}

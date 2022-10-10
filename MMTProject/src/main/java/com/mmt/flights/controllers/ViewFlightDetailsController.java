@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.mmt.flights.model.Flight;
 import com.mmt.flights.services.FlightServiceInterface;
+import com.mmt.payment.CardDetails;
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.services.UserServiceInterface;
 
@@ -31,15 +32,18 @@ public class ViewFlightDetailsController {
 	@RequestMapping("checkAvailabilty")
 	public String checkAvailabilty(@RequestParam("flightId")String flightId , @RequestParam("noOfSeats")int noOfSeats , HttpSession session , Model m) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) return "userLoginPage";
+		if(userId==null) return "redirect:/userLoginNav";
 		if(fs.isSeatsAvilable(flightId, noOfSeats)) {
 			float price = fs.flightPrice(flightId, noOfSeats);
-			m.addAttribute("noOfSeats" , noOfSeats).addAttribute("flightId" , flightId).addAttribute("price", price );
-			return "flightPaymentPage";
+			session.setAttribute("noOfSeats" , noOfSeats);
+			session.setAttribute("flightId" , flightId);
+			session.setAttribute("price", price );
+			return "redirect:/flightPaymentValidation";
 		}
 		m.addAttribute("message" , "No seat avilable");
 		return "bookFlightPage";
 	}
+	
 	
 	@RequestMapping("viewMyFlightBooking")
 	public String viewMyFlightBooking(Model m , HttpSession session) {

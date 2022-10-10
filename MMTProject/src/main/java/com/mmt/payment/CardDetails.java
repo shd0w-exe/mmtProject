@@ -2,7 +2,10 @@ package com.mmt.payment;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.CreditCardNumber;
 
 
 @Entity
@@ -10,17 +13,17 @@ public class CardDetails {
 	@Id
 	@NotBlank
 	private String nameOnCard;
-	@NotBlank
+	@Email
 	private String email;
 	@NotBlank
 	private String address;
 	@NotBlank
 	private String city;
-	@NotBlank
+	
 	private String state;
 	@NotBlank
 	private String zipCode;
-	@NotBlank
+	@CreditCardNumber
 	private String cardNo;
 	private int expMonth;
 	private int expYear;

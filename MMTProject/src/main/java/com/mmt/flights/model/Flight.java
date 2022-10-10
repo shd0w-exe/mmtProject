@@ -8,8 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -29,7 +32,7 @@ public class Flight {
 	private String flightId;
 	@NotEmpty
 	private String flightNumber;
-	@NotEmpty
+	@NotEmpty(message = "Airline Number must not be empty!")
 	private String airlineName;
 //	@NotEmpty
 //	private String flightDuration;
@@ -41,7 +44,8 @@ public class Flight {
 	private String flightSource;
 	@NotEmpty
 	private String flightDestination;
-	@NotNull
+	@Min(value = 0)
+	@Max(value = 250)
 	private int noOfSeats ;
 	private int noOfAvilableSeats;
 	@NotNull

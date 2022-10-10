@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mmt.hotels.services.HotelServiceInterface;
+import com.mmt.payment.CardDetails;
 
 @Controller
 public class ViewHotelsDetailsController {
@@ -25,12 +26,21 @@ public class ViewHotelsDetailsController {
 	@RequestMapping("checkHotelAvailabilty")
 	public String checkHotelAvailabilty(@RequestParam("hotelId")String hoetlId ,@RequestParam("isAc")boolean isAc, @RequestParam("noOfRooms")int noOfRooms, HttpSession session,Model m) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) return "userLoginPage";
+		if(userId==null) return "redirect:/userLoginNav";
 		if(hs.isRoomAvilable(hoetlId, noOfRooms, isAc)){
-			m.addAttribute("hotelId" , hoetlId).addAttribute("isAc" , isAc).addAttribute("noOfRooms" , noOfRooms);
-			return "hotelPaymentPage";
+			session.setAttribute("hotelId", hoetlId);
+			session.setAttribute("noOfRooms" , noOfRooms);
+			session.setAttribute("isAc" , isAc);
+			return "redirect:/hotelPaymentValidation";
 		}
 		m.addAttribute("message" , "Rooms not aviliable");
 		return "bookHotelPage";
+	}
+	
+	
+	@RequestMapping("hotelPaymentValidation")
+	public String hotelPaymentValidation(Model m) {
+		m.addAttribute("cardHotel", new CardDetails());
+		return "hotelPaymentPage";
 	}
 }

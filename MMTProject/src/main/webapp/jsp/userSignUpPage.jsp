@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+     
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,23 +17,40 @@
     <div class="signup-box">
       <h1>Sign Up</h1>
       <h4>It's free and only takes a minute</h4>
-      <form action="createUser">
+      <form:form action="createUser" modelAttribute="user">
         <label>First Name</label>
-        <input type="text" name ="firstName" placeholder="" />
+        <form:input type="text" path ="firstName" placeholder="" />
+        
+        <form:errors path="firstName" cssClass="error"/>
+        
         <label>Middle Name</label>
-        <input type="text" name="middleName" placeholder="" />
+        <form:input type="text" path="middleName" placeholder="" />
+        
+        <form:errors path="middleName" cssClass="error"/>
+        
         <label>Last Name</label>
-        <input type="text" name="lastName" placeholder="" />
+        <form:input type="text" path="lastName" placeholder="" />
+        
+        <form:errors path="lastName" cssClass="error"/>
+        
         <label>Email</label>
-        <input type="email" name="mailID"placeholder="" />
+        <form:input type="email" path="mailID" placeholder="" />
+        
+        <form:errors path="mailID" cssClass="error"/>
+        
         <label>MobileNumber</label>
-        <input type="text" name="mobileNumber"placeholder="" />
+        <form:input type="text" path="mobileNumber" placeholder="" />
+        
+        <form:errors path="mobileNumber" cssClass="error"/>
+        
         <label>Password</label>
-        <input type="password" name="password"placeholder="" />
+        <form:input type="password" path="password" placeholder="" />
+        
+        <form:errors path="password" cssClass="error"/>
        <!--  <label>Confirm Password</label>
         <input type="password" placeholder="" /> -->
         <input type="submit" value="Submit" />
-      </form>
+      </form:form>
     </div>
     <p class="para-2">
       Already have an account? <a href="userLoginNav">Login here</a>

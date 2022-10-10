@@ -18,7 +18,7 @@ public class DeleteUserController {
 	@RequestMapping("deleteUserByUser")
 	public String deleteUserByUser(HttpSession session , Model m) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) return "userLoginPage";
+		if(userId==null) return "redirect:/userLoginNav";
 		if(us.deleteUser(userId )) {
 			session.removeAttribute("userId");
 			return "userHomePage";
