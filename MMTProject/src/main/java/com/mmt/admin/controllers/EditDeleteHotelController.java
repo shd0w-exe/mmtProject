@@ -2,9 +2,13 @@ package com.mmt.admin.controllers;
 
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,7 +21,8 @@ public class EditDeleteHotelController {
 	private AdminServiceInterface as;
 	
 	@RequestMapping("updateHotel") //-- updateHotelPage
-	public String updateHotel(Hotel hotel , Model m) {
+	public String updateHotel(@Valid @ModelAttribute("updateHotel") Hotel hotel ,BindingResult br ,Model m) {
+		if(br.hasErrors()) return "updateHotelPage";
 		if(as.updateHoetl(hotel)) {
 			m.addAttribute("message","hotel updated");
 			return "adminHome";
