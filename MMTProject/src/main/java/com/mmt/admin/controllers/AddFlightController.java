@@ -14,17 +14,17 @@ import com.mmt.flights.model.Flight;
 
 @Controller
 public class AddFlightController {
-    @Autowired
-    private AdminServiceInterface as;
+	@Autowired
+	private AdminServiceInterface as;
 
-    @RequestMapping("addFlight") // -- addFFlightPage
-    public String addFlight(@Valid @ModelAttribute("flight")Flight flight ,BindingResult br ,Model m) {
-    	if(br.hasErrors()) {
-    		  m.addAttribute("message" , "There is Some error");
-    	}else {
-    		as.addFlight(flight);
-            m.addAttribute("message" , "Flight added");
-    	}
-        return "addFlightPage";
-    }
+	@RequestMapping("addFlight") // -- addFFlightPage
+	public String addFlight(@Valid @ModelAttribute("flight") Flight flight, BindingResult br, Model m) {
+		if (br.hasErrors()) {
+			m.addAttribute("message", "There is Some error");
+		} else {
+			as.addFlight(flight);
+			m.addAttribute("message", "Flight added");
+		}
+		return "addFlightPage";
+	}
 }

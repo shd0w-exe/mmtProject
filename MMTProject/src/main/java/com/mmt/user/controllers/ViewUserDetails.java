@@ -15,24 +15,24 @@ import com.mmt.user.services.UserServiceInterface;
 public class ViewUserDetails {
 	@Autowired
 	private UserServiceInterface us;
-	
+
 	@RequestMapping("printUserDetails")
-	public RedirectView printUserDetailsRedirect(HttpSession session , Model m) {
+	public RedirectView printUserDetailsRedirect(HttpSession session, Model m) {
 		String userId = (String) session.getAttribute("userId");
-		if(userId==null) {
+		if (userId == null) {
 			return new RedirectView("userLoginNav");
 		}
 		User user = us.viewUser(userId);
 		m.addAttribute("user", user);
 		return new RedirectView("printUserDetailsDone");
 	}
-	
+
 	@RequestMapping("printUserDetailsDone")
-	public String printUserDetailsDone(HttpSession session ,Model m) {
+	public String printUserDetailsDone(HttpSession session, Model m) {
 		String userId = (String) session.getAttribute("userId");
 		User user = us.viewUser(userId);
 		m.addAttribute("user", user);
 		return "userDetails";
 	}
-	
+
 }

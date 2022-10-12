@@ -25,7 +25,7 @@ public class Admin {
 			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "Admin_"),
 			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	@NotNull
-	@Size(min=2 , max=30)
+	@Size(min = 2, max = 30)
 	private String adminId;
 	private String firstName;
 	private String lastName;
@@ -34,41 +34,53 @@ public class Admin {
 	@NotNull
 	@Min(5)
 	private String adminPassword;
+
 	public String getAdminId() {
 		return adminId;
 	}
+
 	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getAdminEmail() {
 		return adminEmail;
 	}
+
 	public void setAdminEmail(String adminEmail) {
 		this.adminEmail = adminEmail;
 	}
+
 	public long getAdminMobile() {
 		return adminMobile;
 	}
+
 	public void setAdminMobile(long adminMobile) {
 		this.adminMobile = adminMobile;
 	}
+
 	public String getAdminPassword() {
 		return adminPassword;
 	}
+
 	public void setAdminPassword(String adminPassword) {
 		this.adminPassword = adminPassword;
 	}
-	
+
 }

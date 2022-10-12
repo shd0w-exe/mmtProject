@@ -12,11 +12,11 @@ public class FlightsNavigationController {
 	public String searchFlight() {
 		return "searchFlightPage";
 	}
-	
+
 	@RequestMapping("goUpdateFlight")
 	public String goUpdateFlight(Model m) {
-		m.addAttribute("updateFlight" , new Flight());
+		m.addAttribute("updateFlight", new Flight());
 		return "updateFlightPage";
 	}
-	
+
 }

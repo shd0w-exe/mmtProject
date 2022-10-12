@@ -17,61 +17,66 @@ import com.mmt.user.model.User;
 @Entity
 public class BookedFlight {
 	@Id
-	@GeneratedValue(strategy =GenerationType.SEQUENCE,generator = "bookedFlight_seq")
-	@GenericGenerator(name="bookedFlight_seq",
-	            strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator",
-	            parameters = {
-	                    @Parameter(name=StringPrefixedSequenceIdGenerator.INCREMENT_PARAM,value="1"),
-	                    @Parameter(name=StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER,value="BookedFlight_"),
-	                    @Parameter(name=StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER,value="%05d")
-	            }
-	            )
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bookedFlight_seq")
+	@GenericGenerator(name = "bookedFlight_seq", strategy = "com.mmt.sequencegenerator.StringPrefixedSequenceIdGenerator", parameters = {
+			@Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "BookedFlight_"),
+			@Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
 	private String bookedFlightId;
 	private int noOfSeats;
 	private int price;
-	@OneToOne ( orphanRemoval = true)
+	@OneToOne(orphanRemoval = true)
 	private Flight flight;
-	@ManyToOne 
+	@ManyToOne
 	private User user;
 	private String type;
+
 	public String getBookedFlightId() {
 		return bookedFlightId;
 	}
+
 	public void setBookedFlightId(String bookedFlightId) {
 		this.bookedFlightId = bookedFlightId;
 	}
+
 	public int getNoOfSeats() {
 		return noOfSeats;
 	}
+
 	public void setNoOfSeats(int noOfSeats) {
 		this.noOfSeats = noOfSeats;
 	}
+
 	public int getPrice() {
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
 	public Flight getFlight() {
 		return flight;
 	}
+
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
-	
-	
+
 }

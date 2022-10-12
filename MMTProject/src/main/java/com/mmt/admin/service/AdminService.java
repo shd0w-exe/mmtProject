@@ -16,25 +16,23 @@ import com.mmt.user.dao.UserDao;
 public class AdminService implements AdminServiceInterface {
 	@Autowired
 	private AdminDao ad;
-	
+
 	@Autowired
 	private UserDao ud;
-	
+
 	@Autowired
 	private HotelDao hd;
-	
+
 	@Autowired
 	private FlightDao fd;
 
 	@Override
 	public boolean login(Admin admin) {
-		
-		Admin existAdmin = ad.findById(admin.getAdminId()).get();
-		if(existAdmin==null) return false;
-		else {
-			if(existAdmin.getAdminPassword().equals(admin.getAdminPassword())) return true;
-		}
+		Admin exist = ad.findByAdminIdAndAdminPassword(admin.getAdminId(), admin.getAdminPassword());
+		if (exist != null)
+			return true;
 		return false;
+
 	}
 
 	@Override
@@ -45,16 +43,19 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean removeUser(String userId) {
-		
-		if(ud.findById(userId)==null) return false;
+
+		if (!ud.findById(userId).isPresent())
+			return false;
 		ud.deleteById(userId);
 		return true;
 	}
 
 	@Override
 	public boolean addHotel(Hotel hotel) {
-		if(hotel.getNoOfAcRooms()>0) hotel.setIsAc(true);
-		else hotel.setIsAc(false);
+		if (hotel.getNoOfAcRooms() > 0)
+			hotel.setIsAc(true);
+		else
+			hotel.setIsAc(false);
 		hotel.setNoOfAvilableAcRoom(hotel.getNoOfAcRooms());
 		hotel.setNoOfAvilableNonAcRoom(hotel.getNoOfNonAcRooms());
 		hd.save(hotel);
@@ -63,8 +64,8 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean removeHotel(String hotelId) {
-		
-		if(hd.findById(hotelId)!=null) {
+
+		if (hd.findById(hotelId).isPresent()) {
 			hd.deleteById(hotelId);
 			return true;
 		}
@@ -73,17 +74,27 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean updateHoetl(Hotel hotel) {
+		if (!hd.findById(hotel.getHotelId()).isPresent())
+			return false;
 		Hotel existHotel = hd.findById(hotel.getHotelId()).get();
-		if(existHotel==null) return false;
-		if(hotel.getHotelBrand().isBlank()) hotel.setHotelBrand(existHotel.getHotelBrand());
-		if(hotel.getHotelCity().isBlank()) hotel.setHotelCity(existHotel.getHotelCity());
-		if(hotel.getHotelName().isBlank()) hotel.setHotelName(existHotel.getHotelName());
-		if(hotel.getNoOfAcRooms()==0) hotel.setNoOfAcRooms(existHotel.getNoOfAcRooms());
-		if(hotel.getNoOfNonAcRooms()==0) hotel.setNoOfNonAcRooms(existHotel.getNoOfNonAcRooms());
-		if(hotel.getPriceAcRoom()!= existHotel.getPriceAcRoom()) hotel.setPriceAcRoom(existHotel.getPriceAcRoom());
-		if(hotel.getPriceNonAcRoom()!=existHotel.getPriceAcRoom())hotel.setPriceNonAcRoom(existHotel.getPriceNonAcRoom());
-		if(hotel.getNoOfAcRooms()>0)hotel.setIsAc(true);
-		if(hotel.getNoOfAcRooms()<=0)hotel.setIsAc(false);
+		if (hotel.getHotelBrand().isBlank())
+			hotel.setHotelBrand(existHotel.getHotelBrand());
+		if (hotel.getHotelCity().isBlank())
+			hotel.setHotelCity(existHotel.getHotelCity());
+		if (hotel.getHotelName().isBlank())
+			hotel.setHotelName(existHotel.getHotelName());
+		if (hotel.getNoOfAcRooms() == 0)
+			hotel.setNoOfAcRooms(existHotel.getNoOfAcRooms());
+		if (hotel.getNoOfNonAcRooms() == 0)
+			hotel.setNoOfNonAcRooms(existHotel.getNoOfNonAcRooms());
+		if (hotel.getPriceAcRoom() != existHotel.getPriceAcRoom())
+			hotel.setPriceAcRoom(existHotel.getPriceAcRoom());
+		if (hotel.getPriceNonAcRoom() != existHotel.getPriceAcRoom())
+			hotel.setPriceNonAcRoom(existHotel.getPriceNonAcRoom());
+		if (hotel.getNoOfAcRooms() > 0)
+			hotel.setIsAc(true);
+		if (hotel.getNoOfAcRooms() <= 0)
+			hotel.setIsAc(false);
 		hotel.setNoOfAvilableAcRoom(hotel.getNoOfAcRooms());
 		hotel.setNoOfAvilableNonAcRoom(hotel.getNoOfNonAcRooms());
 		hd.save(hotel);
@@ -99,22 +110,22 @@ public class AdminService implements AdminServiceInterface {
 
 	@Override
 	public boolean removeFlight(String flightId) {
-		if(fd.findById(flightId)!=null) {
+		if (fd.findById(flightId).isPresent()) {
 			fd.deleteById(flightId);
 			return true;
-		}
-		return false;
+		} else
+			return false;
 	}
 
 	@Override
 	public boolean updateFlight(Flight flight) {
-		if(fd.findById(flight.getFlightId())==null) {
+
+		if (fd.findById(flight.getFlightId()).isPresent()) {
+			fd.save(flight);
+			return true;
+		} else
 			return false;
-		}
-		
-		return true;
-		
+
 	}
-	
 
 }

@@ -16,31 +16,16 @@ import com.mmt.hotels.model.Hotel;
 public class AddHotelController {
 	@Autowired
 	private AdminServiceInterface as;
-	
-//	@RequestMapping("addHotel") // -- addHotelPage
-//	public String addHotel(Hotel hotel , Model m) {
-//		as.addHotel(hotel);
-//		m.addAttribute("message","hotel Added Successfully");
-//		return "addHotelPage";
-//	}
-//	
-//	@RequestMapping("addHotelValid")
-//	public String display(Model m) {
-//		m.addAttribute("hotel" , new Hotel());
-//		return "addHotelPage";
-//	}
-	
+
 	@RequestMapping("addHotel") // -- addHotelPage
-	public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel,BindingResult br,Model m) {
-		if(br.hasErrors()) {
+	public String addHotel(@Valid @ModelAttribute("hotel") Hotel hotel, BindingResult br, Model m) {
+		if (br.hasErrors()) {
 			return "addHotelPage";
-		}
-		else {
+		} else {
 			as.addHotel(hotel);
-			m.addAttribute("message","hotel Added Successfully");
+			m.addAttribute("message", "hotel Added Successfully");
 			return "addHotelPage";
 		}
 	}
-	
-	
+
 }

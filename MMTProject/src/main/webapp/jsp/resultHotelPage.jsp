@@ -60,6 +60,7 @@
   </div>
 <body>
 <div>
+${message}
 <c:forEach items="${hotelList}" var="hotelList">
 <br>
 <h3>Hotel</h3>

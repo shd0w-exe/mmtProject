@@ -11,5 +11,6 @@ import com.mmt.user.model.User;
 public interface BookedFlightDao extends JpaRepository<BookedFlight, String> {
 
 	List<BookedFlight> findByUser(User user);
+
 	List<Flight> findByFlight(Flight flight);
 }

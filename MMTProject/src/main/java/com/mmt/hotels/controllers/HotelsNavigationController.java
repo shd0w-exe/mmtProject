@@ -12,10 +12,10 @@ public class HotelsNavigationController {
 	public String searchHotels() {
 		return "searchHotelPage";
 	}
-	
+
 	@RequestMapping("goUpdateHotel")
 	public String goUpdateHotel(Model m) {
-		m.addAttribute("updateHotel" , new Hotel());
+		m.addAttribute("updateHotel", new Hotel());
 		return "updateHotelPage";
 	}
 }

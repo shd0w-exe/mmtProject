@@ -13,30 +13,31 @@ public class AdminController {
 	public String adminLogin() {
 		return "adminLoginPage";
 	}
-	
+
 	@RequestMapping("adminHomePage")
 	public String adminHomePage() {
 		return "adminHome";
 	}
-	
+
 	@RequestMapping("goAddFlights")
 	public String goAddFlights(Model m) {
-		m.addAttribute("flight" , new Flight());
+		m.addAttribute("flight", new Flight());
 		return "addFlightPage";
 	}
-	
+
 	@RequestMapping("goRemoveHotel")
 	public String goRemoveHotel() {
 		return "removeHotelPage";
 	}
-	
+
 	@RequestMapping("goRemoveFlight")
 	public String goRemoveFlight() {
 		return "removeFlightPage";
 	}
+
 	@RequestMapping("goAddHotel")
 	public String addHotelNav(Model m) {
-		m.addAttribute("hotel" , new Hotel());
+		m.addAttribute("hotel", new Hotel());
 		return "addHotelPage";
 	}
 }
