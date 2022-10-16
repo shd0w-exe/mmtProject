@@ -23,7 +23,7 @@ public class EditDeleteHotelController {
 	@Autowired
 	private AdminServiceInterface as;
 
-	Logger logger = LoggerFactory.getLogger(HotelIdNotFoundException.class);
+	Logger logger = LoggerFactory.getLogger(EditDeleteHotelController.class);
 
 	@ExceptionHandler(value = HotelIdNotFoundException.class)
 	public String hotelIdNotFoundExceptionHandler(Model m) {

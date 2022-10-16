@@ -3,7 +3,10 @@ package com.mmt.payment;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
 
@@ -25,8 +28,16 @@ public class CardDetails {
 	private String zipCode;
 	@CreditCardNumber
 	private String cardNo;
+	@NotNull
+	@Min(value=1)
+	@Max(value=12)
 	private int expMonth;
+	@NotNull
+	@Min(value=2022)
 	private int expYear;
+	@NotBlank
+	@Min(value=000)
+	@Max(value=999)
 	private String cvv;
 	public String getCardNo() {
 		return cardNo;

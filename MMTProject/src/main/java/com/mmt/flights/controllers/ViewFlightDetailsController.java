@@ -26,7 +26,7 @@ public class ViewFlightDetailsController {
 	@Autowired
 	private UserServiceInterface us;
 
-	Logger logger = LoggerFactory.getLogger(NoFlightBookingException.class);
+	Logger logger = LoggerFactory.getLogger(ViewFlightDetailsController.class);
 
 	@ExceptionHandler(value = NoFlightBookingException.class)
 	public String flightFoundExceptionHandler(Model m) {

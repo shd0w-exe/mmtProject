@@ -23,7 +23,7 @@ public class EditDeleteFlightController {
 	@Autowired
 	private AdminServiceInterface as;
 
-	Logger logger = LoggerFactory.getLogger(FlightIdNotFoundException.class);
+	Logger logger = LoggerFactory.getLogger(EditDeleteFlightController.class);
 
 	@ExceptionHandler(value = FlightIdNotFoundException.class)
 	public String flightIdNotFoundExceptionHandler(Model m) {

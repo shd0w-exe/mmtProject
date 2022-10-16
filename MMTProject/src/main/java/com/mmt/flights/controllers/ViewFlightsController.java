@@ -22,7 +22,7 @@ public class ViewFlightsController {
 	@Autowired
 	private FlightServiceInterface fs;
 
-	Logger logger = LoggerFactory.getLogger(UserLoginController.class);
+	Logger logger = LoggerFactory.getLogger(ViewFlightsController.class);
 
 	@ExceptionHandler(value = FlightNotFoundForSourceToDestinationException.class)
 	public String FlightNotFoundForSourceToDestinationException(Model m) {

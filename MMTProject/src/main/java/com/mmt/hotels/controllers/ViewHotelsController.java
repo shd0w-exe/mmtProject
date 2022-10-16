@@ -27,7 +27,7 @@ public class ViewHotelsController {
 	@Autowired
 	private UserServiceInterface us;
 	
-	Logger logger = LoggerFactory.getLogger(HotelNotFoundException.class);
+	Logger logger = LoggerFactory.getLogger(ViewHotelsController.class);
 
 	@ExceptionHandler(value = HotelNotFoundException.class)
 	public String hotelFoundExceptionHandler(Model m) {
