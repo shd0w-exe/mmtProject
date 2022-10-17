@@ -112,5 +112,23 @@ class MmtProjectApplicationTests {
 		boolean isTrue = adminService.login(admin);
 		assertEquals(isTrue, true);
 	}
+	
+	@Test
+	public void testUpdateHotel() {
+		Hotel hotel = hd.findById("hotel_00001").get();
+		hotel.setNoOfAcRooms(100);
+		adminService.updateHoetl(hotel);
+		Hotel hotelTest = hd.findById("hotel_00001").get();
+		assertEquals(100, hotelTest.getNoOfAcRooms());
+	}
+	
+	@Test
+	public void testUpdateFlight() {
+		Flight flight = fd.findById("Flight_00001").get();
+		flight.setNoOfSeats(100);
+		adminService.updateFlight(flight);
+		Flight flightTest = fd.findById("Flight_00001").get();
+		assertEquals(100, flightTest.getNoOfSeats());
+	}
 
 }

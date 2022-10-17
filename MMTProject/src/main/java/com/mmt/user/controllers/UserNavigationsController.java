@@ -34,6 +34,12 @@ public class UserNavigationsController {
 		return "userHome";
 	}
 	
+//	@RequestMapping("homeNav")
+//	public String userLogout(HttpSession session) {
+//		session.removeAttribute("userId");
+//		return "userHome";
+//	}
+	
 	
 	
 
