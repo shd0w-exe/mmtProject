@@ -2,6 +2,8 @@ package com.mmt.flights.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +28,20 @@ public class ViewFlightsController {
 	@ExceptionHandler(value = FlightNotFoundForSourceToDestinationException.class)
 	public String FlightNotFoundForSourceToDestinationException(Model m) {
 		m.addAttribute("message", "No Flight Found");
-		logger.error("Email ID alredy in use");
 		return "resultFlightPage";
 	}
 
 	@RequestMapping("viewFlightSourceToDestination")
 	public String sourceToDestinationFlight(@RequestParam("source") String source,
-			@RequestParam("destination") String destination, Model m)
+			@RequestParam("destination") String destination, Model m , HttpSession session)
 			throws FlightNotFoundForSourceToDestinationException {
 		List<Flight> list = fs.flightFromStartCityToDestinationCityInOrder(source, destination);
 		if (list.size() > 0) {
 			m.addAttribute("flightList", list);
 			return "resultFlightPage";
 		}
-		logger.error("Flight not found source : " +source+" to "+destination +" searched by ");
+		String userId = (String) session.getAttribute("userId");
+		logger.error("Flight not found source : " +source+" to "+destination +" searched by "+userId );
 		throw new FlightNotFoundForSourceToDestinationException("no Flight for destination" ,source, destination);
 	}
 
