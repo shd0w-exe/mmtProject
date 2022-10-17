@@ -4,7 +4,7 @@ public class FlightNotFoundForSourceToDestinationException extends Exception {
 
 	private static final long serialVersionUID = 11L;
 
-	public FlightNotFoundForSourceToDestinationException(String msg) {
+	public FlightNotFoundForSourceToDestinationException(String msg , String source , String destinaion) {
 		super(msg);
 	}
 

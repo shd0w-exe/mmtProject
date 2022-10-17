@@ -7,6 +7,9 @@
 <meta charset="ISO-8859-1">
 <title>Update Flight</title>
 <link rel="stylesheet" href="/css/addFlightAndHotel.css" />
+<style>
+    .error{color:red}
+    </style>
 </head>
 <body>
 <h3 style="color:#CC6666;">${message}</h3>

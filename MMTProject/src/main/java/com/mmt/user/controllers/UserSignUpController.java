@@ -44,6 +44,7 @@ public class UserSignUpController {
 		if (us.createuser(user)) {
 			return "userLoginPage";
 		}
-		throw new EmailAlreadyExistException("Email Alredy exist");
+		logger.error("Email ID alredy in use "+ user.getMailID());
+		throw new EmailAlreadyExistException("Email Alredy exist" , user.getMailID());
 	}
 }

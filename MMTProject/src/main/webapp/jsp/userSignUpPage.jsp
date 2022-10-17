@@ -12,6 +12,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
+    <style>
+    .error{color:red}
+    </style>
   </head>
   <body>
     <div class="signup-box">

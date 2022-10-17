@@ -1,5 +1,7 @@
 package com.mmt.user.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,11 @@ public class UserNavigationsController {
 	public String userLoginNav(Model m) {
 		m.addAttribute("user" , new User());
 		return "userLoginPage";
+	}
+	
+	@RequestMapping("homeNav")
+	public String userHomeNav(HttpSession session) {
+		return "userHome";
 	}
 	
 	

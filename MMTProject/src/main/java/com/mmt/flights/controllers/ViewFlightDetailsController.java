@@ -69,7 +69,8 @@ public class ViewFlightDetailsController {
 			m.addAttribute("list", flight);
 			return "viewMyBookingPage";
 		}
-		throw new NoFlightBookingException("No Flight Booking by user");
+		logger.error("No flight booked by user "+ userId);
+		throw new NoFlightBookingException("No Flight Booking by user",userId);
 	}
 
 }

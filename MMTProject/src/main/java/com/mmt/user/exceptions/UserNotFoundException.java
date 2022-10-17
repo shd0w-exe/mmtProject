@@ -4,7 +4,7 @@ public class UserNotFoundException extends Exception {
 
 	private static final long serialVersionUID = 7L;
 
-	public UserNotFoundException(String message) {
+	public UserNotFoundException(String message , String id) {
 		super(message);
 	}
 }

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.mmt.flights.exception.FlightNotFoundForSourceToDestinationException;
 import com.mmt.flights.model.Flight;
 import com.mmt.flights.services.FlightServiceInterface;
-import com.mmt.user.controllers.UserLoginController;
 
 @Controller
 public class ViewFlightsController {
@@ -40,7 +39,8 @@ public class ViewFlightsController {
 			m.addAttribute("flightList", list);
 			return "resultFlightPage";
 		}
-		throw new FlightNotFoundForSourceToDestinationException("no Flight for destination");
+		logger.error("Flight not found source : " +source+" to "+destination +" searched by ");
+		throw new FlightNotFoundForSourceToDestinationException("no Flight for destination" ,source, destination);
 	}
 
 	@RequestMapping("checkFlight")

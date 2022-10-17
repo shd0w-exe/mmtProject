@@ -49,7 +49,8 @@ public class EditDeleteHotelController {
 			m.addAttribute("message", "hotel updated");
 			return "updateHotelPage";
 		}
-		throw new HotelIdNotFoundException("Hotel Not Found");
+		logger.error("Hotel with id "+hotel.getHotelId()+" Not Found");
+		throw new HotelIdNotFoundException("Hotel Not Found" ,hotel.getHotelId() );
 	}
 
 	@RequestMapping("deleteHotel") 
@@ -59,6 +60,7 @@ public class EditDeleteHotelController {
 			m.addAttribute("message", "hotel deleted");
 			return "adminHome";
 		}
-		throw new HotelIdNotFoundDeleteException("Hotel Not Found");
+		logger.error("Hotel with id "+hotelId+" Not Found");
+		throw new HotelIdNotFoundDeleteException("Hotel Not Found" ,hotelId);
 	}
 }

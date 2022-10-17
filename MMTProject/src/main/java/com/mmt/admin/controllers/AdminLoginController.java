@@ -23,7 +23,7 @@ public class AdminLoginController {
 	public String adminNotFoundExceptionHandler(Model m) {
 		m.addAttribute("message", "wrong username or password");
 		logger.error("Wrong Username or Password");
-		return "adminLoginPage";
+		return "adminNotFoundPage";
 	}
 
 	@RequestMapping("adminLogin") 

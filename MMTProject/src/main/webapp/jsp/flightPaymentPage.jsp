@@ -11,6 +11,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Payment</title>
 	<link rel="stylesheet" type="text/css" href="/css/payment.css">
+	<style>
+    .error{color:red}
+    </style>
 </head>
 <body>
 <header>

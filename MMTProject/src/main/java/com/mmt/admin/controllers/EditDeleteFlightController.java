@@ -48,7 +48,8 @@ public class EditDeleteFlightController {
 			m.addAttribute("message", "flight updated");
 			return "updateFlightPage";
 		}
-		throw new FlightIdNotFoundException("Flight Not Found");
+		logger.error("Flight with id"+ flight.getFlightId()+ " not Found");
+		throw new FlightIdNotFoundException("Flight Not Found" ,flight.getFlightId() );
 	}
 
 	@RequestMapping("deleteFlight") // -- deleteFlightpage
@@ -58,8 +59,8 @@ public class EditDeleteFlightController {
 			m.addAttribute("message", "flight Deleted");
 			return "removeFlightPage";
 		} else {
-			System.out.println("delted");
-			throw new FlightIdNotFoundDeleteException("Flight Not Found");
+			logger.error("Flight with id"+ flightId+ " not Found");
+			throw new FlightIdNotFoundDeleteException("Flight Not Found" , flightId);
 		}
 	}
 }

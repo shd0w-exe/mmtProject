@@ -4,7 +4,7 @@ public class HotelNotFoundException extends Exception {
 	
 	private static final long serialVersionUID = 4L;
 	
-	public HotelNotFoundException(String msg) {
+	public HotelNotFoundException(String msg , String destionaion) {
 		super(msg);
 	}
 }

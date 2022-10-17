@@ -42,13 +42,9 @@ public class UserLoginController {
 			session.setAttribute("userId", userId);
 			return "userHome";
 		}
-
-		throw new UserNotFoundException("wrong userName or Password");
+		logger.error("User Not Found "+user.getMailID() );
+		throw new UserNotFoundException("wrong userName or Password" , user.getMailID());
 	}
 
-	@RequestMapping("userLogout")
-	public String userLogot(HttpSession session) {
-		session.removeAttribute("userId");
-		return "userHome";
-	}
+	
 }

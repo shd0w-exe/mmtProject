@@ -49,13 +49,15 @@ public class ViewHotelsController {
 		return "hotelView";
 	}
 	@RequestMapping("viewHotelAtDestination") //-- viewHotelpage
-	public String viewHotelAtDestination(@RequestParam("search")String destination,Model m) throws HotelNotFoundException {
+	public String viewHotelAtDestination(@RequestParam("search")String destination,Model m , HttpSession session) throws HotelNotFoundException {
 		List<Hotel> hotel = hs.hotelAtDestinationCity(destination);
 		if(hotel.size()>0) {
 			m.addAttribute("hotelList" ,hs.hotelAtDestinationCity(destination) );
 			return "resultHotelPage";
 		}else {
-			throw new HotelNotFoundException("No Hotel Found At Destination");
+			String userId = (String) session.getAttribute("userId");
+			logger.error("No Hotel Found At Destination: "+destination +" search by user "+ userId);
+			throw new HotelNotFoundException("No Hotel Found At Destination" , destination);
 		}
 	}
 	
@@ -68,7 +70,8 @@ public class ViewHotelsController {
 			m.addAttribute("hotelList" , hotel);
 			return "viewMyHotelBookingPage";
 		}
-		throw new NoBookingFoundException("No booking Done by user");
+		logger.error("No Hotel Booked by user "+ userId);
+		throw new NoBookingFoundException("No booking Done by user",userId);
 	}
 	
 	@RequestMapping("checkHotel")
