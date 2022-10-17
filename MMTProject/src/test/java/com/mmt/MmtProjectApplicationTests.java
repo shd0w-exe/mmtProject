@@ -6,12 +6,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.mmt.admin.dao.AdminDao;
 import com.mmt.admin.model.Admin;
+import com.mmt.admin.service.AdminServiceInterface;
 import com.mmt.flights.dao.FlightDao;
 import com.mmt.flights.model.Flight;
+import com.mmt.flights.services.FlightServiceInterface;
 import com.mmt.hotels.dao.HotelDao;
 import com.mmt.hotels.model.Hotel;
+import com.mmt.hotels.services.HotelServiceInterface;
 import com.mmt.user.dao.UserDao;
 import com.mmt.user.model.User;
+import com.mmt.user.services.UserServiceInterface;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -29,6 +33,18 @@ class MmtProjectApplicationTests {
 
 	@Autowired
 	private HotelDao hd;
+	
+	@Autowired
+	private HotelServiceInterface hotelService;
+	
+	@Autowired
+	private FlightServiceInterface flightService;
+	
+	@Autowired
+	private UserServiceInterface userService;
+	
+	@Autowired
+	private AdminServiceInterface adminService;
 
 	@Test
 	public void testAdminLogin() {
@@ -63,6 +79,38 @@ class MmtProjectApplicationTests {
 		Hotel hotel = hd.findById("hotel_00001").get();
 		String id = hotel.getHotelId();
 		assertEquals("hotel_00001", id);
+	}
+	
+	@Test
+	public void testFindHotelLogic() {
+		Hotel hotel = hd.findById("hotel_00001").get();
+		Hotel hotelTest = hotelService.viewHotel("hotel_00001");
+		String name = hotel.getHotelName();
+		String nameTest =hotelTest.getHotelName();
+		assertEquals(name, nameTest);
+	}
+	
+	@Test
+	public void testFindFlightLogic() {
+		Flight flight = fd.findById("Flight_00001").get();
+		Flight flightTest = flightService.viewFlightDetails("Flight_00001");
+		String flightName = flight.getAirlineName();
+		String flightTestName = flightTest.getAirlineName();
+		assertEquals(flightName, flightTestName);
+	}
+	
+	@Test
+	public void testUserLoginLogic() {
+		User user = ud.findByMailIDAndPassword("ankur@gmail.com", "Ankur@321");
+		boolean isTrue =userService.userLogin(user);
+		assertEquals(isTrue, true);
+	}
+	
+	@Test
+	public void testAdminLoginLogic() {
+		Admin admin = ad.findByAdminIdAndAdminPassword("ankury", "1234");
+		boolean isTrue = adminService.login(admin);
+		assertEquals(isTrue, true);
 	}
 
 }
